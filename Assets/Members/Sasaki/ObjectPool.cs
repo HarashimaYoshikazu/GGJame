@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using System;
 
@@ -14,7 +14,7 @@ namespace Pools
 
     public class ObjectPool<PoolType> where PoolType : UnityEngine.Object, IPool
     {
-        // ‰Šú‰»
+        // åˆæœŸåŒ–
         public ObjectPool(PoolType poolType, int createCount, Transform parent = null)
         {
             _poolType = poolType;
@@ -43,9 +43,9 @@ namespace Pools
         }
 
         /// <summary>
-        /// Pool‚©‚çg‚¤Û‚ÉŒÄ‚Ño‚·B
+        /// Poolã‹ã‚‰ä½¿ã†éš›ã«å‘¼ã³å‡ºã™ã€‚
         /// </summary>
-        /// <returns>Pool‚É“o˜^‚µ‚½Type</returns>
+        /// <returns>Poolã«ç™»éŒ²ã—ãŸType</returns>
         public PoolType UseRequest()
         {
             PoolType check = _pool.Find(p => !p.IsUsing);
