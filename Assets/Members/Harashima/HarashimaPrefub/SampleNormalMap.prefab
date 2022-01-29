@@ -95,6 +95,8 @@ MonoBehaviour:
   - {fileID: 6157428569462918046, guid: d6c00e99234b96e488dce8ca0cef606a, type: 3}
   _whiteTile: {fileID: 6157428569462918046, guid: d6c00e99234b96e488dce8ca0cef606a, type: 3}
   _tileLimit: 5
+  _mapManagerTag: Respawn
+  _endZoneTag: Finish
 --- !u!114 &8307217825612657541
 MonoBehaviour:
   m_ObjectHideFlags: 0
