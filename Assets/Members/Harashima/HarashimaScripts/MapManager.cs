@@ -53,6 +53,8 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
     [SerializeField, Tooltip("難易度が上がった時に上がるスピード")]
     public float _additionSpeed = 50f;
 
+    public bool CanStageMove { get; set; } = false;
+
     void Start()
     {
         /*

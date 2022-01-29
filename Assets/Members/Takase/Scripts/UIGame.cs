@@ -7,6 +7,7 @@ using DG.Tweening;
 public class UIGame : MonoBehaviour
 {
     [SerializeField] private Text _Score;
+    [SerializeField] private Button _StartButton;
 
     private Tween _ScoreTween = null;
     private int _currentDispScore = 0;
@@ -14,6 +15,11 @@ public class UIGame : MonoBehaviour
     public void Setup()
     {
         GameManager.Instance.OnAddScore += UpdateScore;
+        _StartButton.onClick.AddListener(() =>
+        {
+            MapManager.I.CanStageMove = true;
+            _StartButton.gameObject.SetActive(false);
+        });
     }
 
     public void UpdateScore(int score)
@@ -22,7 +28,7 @@ public class UIGame : MonoBehaviour
         _ScoreTween = DOTween.To(() => _currentDispScore, (val) =>
         {
             _currentDispScore = val;
-            _Score.text = string.Format("{0:#,0}", val);
+            _Score.text = val.ToString("000");
         }, score, 1f);
     }
 
