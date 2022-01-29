@@ -14,10 +14,21 @@ public class MapController : MonoBehaviour
     GameObject _whiteTile;
     [SerializeField, Tooltip("タイルの生成上限")]
     int _tileLimit;
-    List<GameObject> _currentTile = new List<GameObject>();
+
+    /// <summary>現在、このMapの子オブジェクトになっているタイル</summary>
+    List<GameObject> _currentMapTile = new List<GameObject>();
+    [Header("タグ")]
+    [SerializeField, Tooltip("マップマネージャーのタグ")]
+    string _mapManagerTag;
+    [SerializeField, Tooltip("マップマネージャーのタグ")]
+    string _endZoneTag;
+
+    /// <summary>シーン上に存在するMapManager</summary>
+    MapManager _mapManager;
 
     private void Start()
     {
+        _mapManager = GameObject.FindGameObjectWithTag(_mapManagerTag).GetComponent<MapManager>(); 
         if (_tilePrefub != null)
         {
             InstansTile();
@@ -25,7 +36,7 @@ public class MapController : MonoBehaviour
     }
     void Update()
     {
-        Move();       
+        Move();
     }
     void Move()
     {
@@ -43,15 +54,35 @@ public class MapController : MonoBehaviour
                 if (i != _whiteIndex)
                 {
                     int random = Random.Range(0, _tilePrefub.Length);
-
-                    _currentTile.Add(Instantiate(_tilePrefub[random], this.transform)) ;
+                    //生成したタイルをMapManagerのListに追加する
+                    var go = Instantiate(_tilePrefub[random], this.transform);
+                    _mapManager.TileControll(go,true) ;
+                    //※問題あり、このクラスのListにも追加
+                    _currentMapTile.Add(go); 
                 }
                 else
                 {
-                    //安全地帯を絶対に生成する
-                    _currentTile.Add(Instantiate(_whiteTile, this.transform)) ;
+                //安全地帯を絶対に生成する
+                var go = Instantiate(_whiteTile, this.transform);
+                _mapManager.TileControll(go,true) ;
+                _currentMapTile.Add(go);
                 }
             }
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //EndZoneTagに当たったら
+        if (collision.gameObject.CompareTag(_endZoneTag))
+        {
+            foreach (var i in _currentMapTile)
+            {
+                //MapmnagerのListから削除
+                _mapManager.TileControll(i,false);
+                //自分も削除
+                Destroy(i);
+            }
+        }
     }
 }

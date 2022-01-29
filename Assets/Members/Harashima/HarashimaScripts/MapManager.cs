@@ -40,6 +40,9 @@ public class MapManager : MonoBehaviour
     [SerializeField, Tooltip("キャンバス")]
     Canvas _canvas;
 
+    /// <summary>シーン上にある全てのタイル</summary>
+    List<GameObject> _currentAllTile = new List<GameObject>();
+    public List<GameObject> CurrentAllTile { get => _currentAllTile; set => _currentAllTile = value; }
 
     /// <summary>現在の難易度</summary>
     Difficulty _currentDifficulty;
@@ -57,7 +60,7 @@ public class MapManager : MonoBehaviour
         if (_normalMapPrefubs != null)
         {
             InstansMap(_currentDifficulty);
-        }       
+        }
     }
 
     /// <summary>
@@ -109,4 +112,22 @@ public class MapManager : MonoBehaviour
             _currentDifficulty = Difficulty.Normal;
         }
     }
+
+    /// <summary>
+    /// タイルのリストを外部から操作するクラス
+    /// </summary>
+    /// <param name="tile">追加するタイル</param>
+    /// <param name="add">追加するならtrue、削除ならfalse</param>
+    public void TileControll(GameObject tile,bool add)
+    {
+        if (add)
+        {
+            _currentAllTile.Add(tile);
+        }
+        else
+        {
+            _currentAllTile.Remove(tile);
+        }
+        
+    } 
 }
