@@ -30,7 +30,6 @@ public class MapController : MonoBehaviour
     {
         Move();
         DestroySelf();
-        Debug.Log(transform.position.x + this.gameObject.name);
     }
     void Move()
     {
