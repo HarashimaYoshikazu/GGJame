@@ -14,10 +14,7 @@ public class AudioScript : MonoBehaviour
 
     void Start()
     {
-        _audioMixer.GetFloat("BGMVolume", out float bgmVolume);
-        _bgmSlider.value = bgmVolume;
-        _audioMixer.GetFloat("SEVolume", out float seVolume);
-        _seSlider.value = seVolume;
+
     }
 
     public void SetBGM(float Volume)

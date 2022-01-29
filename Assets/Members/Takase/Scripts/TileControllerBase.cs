@@ -12,7 +12,7 @@ public abstract class TileControllerBase : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        var player = GameObject.FindGameObjectWithTag("Player");
+        var player = MainManager.I?.Player;
         if (player == null)
         {
             return;
@@ -21,9 +21,7 @@ public abstract class TileControllerBase : MonoBehaviour, IPointerDownHandler
         var diff = transform.position.x - player.transform.position.x;
         if (diff > 0 && diff < PlayerDistance)
         {
-            player.transform.parent = transform;
-            player.transform.position = transform.position;
-            TileEffect();
+            player.Move(transform, TileEffect);
         }
     }
 

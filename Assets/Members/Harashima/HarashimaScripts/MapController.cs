@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
-    [Header("移動")]
-    [SerializeField, Tooltip("マップの移動速度")]
-    float _speed;
     [Header("タイル関係（生成する場合のみ設定が必要）")]
     [SerializeField, Tooltip("マップの子オブジェクトとして生成されるタイル")]
     GameObject[] _tilePrefub;
@@ -14,7 +11,13 @@ public class MapController : MonoBehaviour
     GameObject _whiteTile;
     [SerializeField, Tooltip("タイルの生成上限")]
     int _tileLimit;
-    List<GameObject> _currentTile = new List<GameObject>();
+
+    /// <summary>現在、このMapの子オブジェクトになっているタイル</summary>
+    List<GameObject> _currentMapTile = new List<GameObject>();
+    [Header("タグ")]
+
+    [SerializeField, Tooltip("エンドゾーンのタグ")]
+    string _endZoneTag;
 
     private void Start()
     {
@@ -25,11 +28,11 @@ public class MapController : MonoBehaviour
     }
     void Update()
     {
-        Move();       
+        Move();
     }
     void Move()
     {
-        this.transform.Translate(-(_speed)*Time.deltaTime, 0,0);
+        this.transform.Translate(-(MapManager.I._speed) * Time.deltaTime, 0, 0);
     }
 
     /// <summary>
@@ -37,21 +40,40 @@ public class MapController : MonoBehaviour
     /// </summary>
     void InstansTile()
     {
-            int _whiteIndex = Random.Range(0, _tileLimit);
-            for (int i = 0; i < _tileLimit; ++i)
+        int _whiteIndex = Random.Range(0, _tileLimit);
+        for (int i = 0; i < _tileLimit; ++i)
+        {
+            if (i != _whiteIndex)
             {
-                if (i != _whiteIndex)
-                {
-                    int random = Random.Range(0, _tilePrefub.Length);
-
-                    _currentTile.Add(Instantiate(_tilePrefub[random], this.transform)) ;
-                }
-                else
-                {
-                    //安全地帯を絶対に生成する
-                    _currentTile.Add(Instantiate(_whiteTile, this.transform)) ;
-                }
+                int random = Random.Range(0, _tilePrefub.Length);
+                //生成したタイルをMapManagerのListに追加する
+                var go = Instantiate(_tilePrefub[random], this.transform);
+                MapManager.I.TileControll(go, true);
+                //※問題あり、このクラスのListにも追加
+                _currentMapTile.Add(go);
             }
-        
+            else
+            {
+                //安全地帯を絶対に生成する
+                var go = Instantiate(_whiteTile, this.transform);
+                MapManager.I.TileControll(go, true);
+                _currentMapTile.Add(go);
+            }
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //EndZoneTagに当たったら
+        if (collision.gameObject.CompareTag(_endZoneTag))
+        {
+            foreach (var i in _currentMapTile)
+            {
+                //MapmnagerのListから削除
+                MapManager.I.TileControll(i, false);
+            }
+            Destroy(this.gameObject);
+        }
     }
 }

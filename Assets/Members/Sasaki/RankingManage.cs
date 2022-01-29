@@ -50,7 +50,7 @@ public class RankingManage : MonoBehaviour
 
         query.FindAsync((objList, e) => 
         {
-            if (e != null) Debug.Log($"Can't Find \n {e.ErrorMessage}");
+            if (e != null) Debug.Log($"{e.ErrorMessage}");
             else
             {
                 Debug.Log("IsFind");
