@@ -10,7 +10,6 @@ public class RankingManage : MonoBehaviour
 {
     [SerializeField] GameObject _rankingCanvas;
     [SerializeField] Image _rankingPanel;
-    [SerializeField] Text _myScoreTxt;
     [SerializeField] int _getTopCount = 10;
     [SerializeField] TextMeshProUGUI _rankingTxt; 
 
@@ -20,18 +19,11 @@ public class RankingManage : MonoBehaviour
 
     RankingInputter _inputter;
 
-    void Start()
-    {
-        _rankingCanvas.gameObject.SetActive(false);
-    }
-
     /// <summary>
     /// Rankingの表示のみ
     /// </summary>
     public void LoadRanking()
     {
-        _rankingCanvas.SetActive(true);
-        _myScoreTxt.gameObject.SetActive(false);
         SetRanking();
     }
 
@@ -42,8 +34,6 @@ public class RankingManage : MonoBehaviour
     public void GetScore(int score)
     {
         _rankingCanvas.SetActive(true);
-        _myScoreTxt.gameObject.SetActive(true);
-        _myScoreTxt.text = $"MyScore : {score}";
         _inputter = GetComponent<RankingInputter>();
 
         SetRanking(score);
