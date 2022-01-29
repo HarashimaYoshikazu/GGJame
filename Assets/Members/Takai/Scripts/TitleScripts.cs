@@ -35,7 +35,6 @@ public class TitleScripts : MonoBehaviour
     void Start()
     {
         _fadeImage.gameObject.SetActive(false);
-        FindObjectOfType<RankingManage>().LoadRanking();
     }
     public void OnClickStart()
     {
