@@ -23,6 +23,13 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+
+        Debug.LogError(transform.position.x);
+        if (transform.position.x < -100f)
+        {
+            GameManager.Instance.ChangeState(GameState.Result);
+        }
+
         if (_tweener != null)
         {
             return;
@@ -54,13 +61,4 @@ public class Player : MonoBehaviour
             _Timer = 1.0f;
         };
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Finish"))
-        {
-
-        }
-    }
-
 }

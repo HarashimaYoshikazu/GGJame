@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -21,11 +22,19 @@ public class GameManager
     public void AddScore() => Score++;
     public void ChangeState(GameState state)
     {
+        if (CurrentState == state)
+        {
+            return;
+        }
+
         CurrentState = state;
 
         switch (state)
         {
             case GameState.Result:
+                // 本当はすぐにタイトルにはいきません
+                // TODO: 誰かお願いします
+                SceneManager.LoadScene("TitleScene");
                 break;
         }
     }

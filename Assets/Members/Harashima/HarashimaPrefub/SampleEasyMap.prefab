@@ -54,7 +54,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 242659923140047455}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -89,13 +89,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd44478e4c2bc849bf37f4a4f492d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 300
   _tilePrefub:
   - {fileID: 6457739871117194258, guid: 9a3fb787d33479f4cace42552f508325, type: 3}
   - {fileID: 6157428569462918046, guid: d6c00e99234b96e488dce8ca0cef606a, type: 3}
   _whiteTile: {fileID: 6157428569462918046, guid: d6c00e99234b96e488dce8ca0cef606a, type: 3}
   _tileLimit: 3
-  _mapManagerTag: Respawn
   _endZoneTag: Finish
 --- !u!114 &242659923140047442
 MonoBehaviour:

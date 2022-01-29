@@ -2021,7 +2021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainCanvas: {fileID: 1901090234}
   _startButton: {fileID: 476457084}
-  _inGameName: 
+  _inGameName: GameScene
   _audioButton: {fileID: 707740344}
   _audioCanvas: {fileID: 755487576}
   _ruleButton: {fileID: 1953069362}
