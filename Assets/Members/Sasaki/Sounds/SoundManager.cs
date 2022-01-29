@@ -25,6 +25,8 @@ namespace Sounds
         [SerializeField] int _poolCount;
         [SerializeField] List<SoundGroup> _soundGroups;
 
+        float _saveMasterVolume;
+
         [System.Serializable]
         class SoundGroup
         {
@@ -40,6 +42,7 @@ namespace Sounds
             if (_instance == null)
             {
                 _instance = this;
+                _saveMasterVolume = MasterVolume;
                 DontDestroyOnLoad(gameObject);
             }
             else
@@ -111,6 +114,12 @@ namespace Sounds
 
             SoundEffect effect = Instance._loopSounds.Find(s => s.ID == id);
             effect.Action.Invoke();
+        }
+
+        static public void Mute(bool check)
+        {
+            if (!check) Instance.MasterVolume = 0;
+            else Instance.MasterVolume = Instance._saveMasterVolume;
         }
     }
 }
