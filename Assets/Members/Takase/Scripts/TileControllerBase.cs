@@ -10,6 +10,8 @@ public abstract class TileControllerBase : MonoBehaviour, IPointerDownHandler
 
     [SerializeField] private Image _CoveredImage;
 
+    [SerializeField] private Animator _Animator;
+
     public void OnPointerDown(PointerEventData eventData)
     {
         var player = MainManager.I?.Player;
@@ -21,8 +23,18 @@ public abstract class TileControllerBase : MonoBehaviour, IPointerDownHandler
         var diff = transform.position.x - player.transform.position.x;
         if (diff > 0 && diff < PlayerDistance)
         {
-            player.Move(transform, TileEffect);
+            player.Move(transform, OnBeginTileEffect);
         }
+    }
+
+    private void OnBeginTileEffect()
+    {
+        if (_Animator)
+        {
+            _Animator.SetTrigger("Destroy");
+        }
+
+        TileEffect();
     }
 
     protected abstract void TileEffect();
