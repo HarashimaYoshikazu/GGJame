@@ -1,19 +1,29 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
-    [SerializeField, Tooltip("ƒ}ƒbƒv‚ÌqƒIƒuƒWƒFƒNƒg‚Æ‚µ‚Ä¶¬‚³‚ê‚éƒ^ƒCƒ‹")]
+    [SerializeField, Tooltip("ãƒãƒƒãƒ—ã®å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ã—ã¦ç”Ÿæˆã•ã‚Œã‚‹ã‚¿ã‚¤ãƒ«")]
     GameObject[] _tilePrefub;
+    [SerializeField, Tooltip("å®‰å…¨åœ°å¸¯ã®ã‚¿ã‚¤ãƒ«")]
+    GameObject _whiteTile;
+    [SerializeField, Tooltip("ã‚¿ã‚¤ãƒ«ã®ç”Ÿæˆä¸Šé™")]
+    int _tileLimit;
+    [SerializeField, Tooltip("ãƒãƒƒãƒ—ã®ç§»å‹•é€Ÿåº¦")]
+    float _speed;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (_tilePrefub != null)
+        {
+            InstansTile();
+        }
         
     }
     void Move()
@@ -22,10 +32,25 @@ public class MapController : MonoBehaviour
     }
 
     /// <summary>
-    /// ©•ª‚ÌqƒIƒuƒWƒFƒNƒg‚Éƒ^ƒCƒ‹‚ğ¶¬‚·‚éŠÖ”
+    /// è‡ªåˆ†ã®å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã‚¿ã‚¤ãƒ«ã‚’ç”Ÿæˆã™ã‚‹é–¢æ•°
     /// </summary>
     void InstansTile()
     {
+            int _whiteIndex = Random.Range(0, _tileLimit);
+            for (int i = 0; i < _tileLimit; ++i)
+            {
+                if (i != _whiteIndex)
+                {
+                    int random = Random.Range(0, _tileLimit);
 
+                    Instantiate(_tilePrefub[random]);
+                }
+                else
+                {
+                    //å®‰å…¨åœ°å¸¯ã‚’çµ¶å¯¾ã«ç”Ÿæˆã™ã‚‹
+                    Instantiate(_whiteTile);
+                }
+            }
+        
     }
 }
