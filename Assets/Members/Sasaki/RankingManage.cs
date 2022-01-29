@@ -18,6 +18,7 @@ public class RankingManage : MonoBehaviour
     const string ScoreData = "Score";
 
     RankingInputter _inputter;
+    bool _isRankIn = false;
 
     /// <summary>
     /// Rankingの表示のみ
@@ -42,7 +43,7 @@ public class RankingManage : MonoBehaviour
     void SetRanking(int score = 0)
     {
         _rankingPanel.gameObject.SetActive(true);
-
+        _isRankIn = false;
         NCMBQuery<NCMBObject> query = new NCMBQuery<NCMBObject>(DataStore);
         query.OrderByDescending(ScoreData);
         query.Limit = _getTopCount;
@@ -58,11 +59,13 @@ public class RankingManage : MonoBehaviour
                 || objList.Count == 0)
                 {
                     Debug.Log("IsRankIn");
+                    _isRankIn = true;
                     StartCoroutine(WaitInputName(score));
                 }
                 else
                 {
                     Debug.Log("NotRankIn");
+                    _isRankIn = false;
                     SetRankingText(objList);
                 }
 
@@ -121,4 +124,6 @@ public class RankingManage : MonoBehaviour
         _rankingTxt.text = builder.ToString();
         GameManager.Instance.Init();
     }
+
+    public bool IsRankIn() => _isRankIn;
 }
