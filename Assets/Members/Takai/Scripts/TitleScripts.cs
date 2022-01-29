@@ -1,30 +1,40 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class TitleScripts : MonoBehaviour
 {
-    [Header("ƒƒCƒ“ƒLƒƒƒ“ƒoƒX")]
+    [Header("ãƒ¡ã‚¤ãƒ³ã‚­ãƒ£ãƒ³ãƒã‚¹")]
     [SerializeField] GameObject _mainCanvas;
 
-    [Header("ƒXƒ^[ƒgƒ{ƒ^ƒ“")]
+    [Header("ã‚¹ã‚¿ãƒ¼ãƒˆãƒœã‚¿ãƒ³")]
     [SerializeField] Button _startButton;
+    [SerializeField] string _inGameName = ""; //ã‚¹ã‚¿ãƒ¼ãƒˆã—ãŸå¾Œã«é£›ã¶ã‚·ãƒ¼ãƒ³åã‚’å…¥ã‚Œã‚‹
 
-    [Header("Audioƒ{ƒ^ƒ“")]
+    [Header("Audioãƒœã‚¿ãƒ³")]
     [SerializeField] Button _audioButton;
     [SerializeField] GameObject _audioCanvas;
 
-    [Header("‚â‚è•ûà–¾ƒ{ƒ^ƒ“")]
+    [Header("ã‚„ã‚Šæ–¹èª¬æ˜Žãƒœã‚¿ãƒ³")]
     [SerializeField] Button _ruleButton;
     [SerializeField] GameObject _ruleCanvas;
 
-    [Header("‚à‚Ç‚éƒ{ƒ^ƒ“")]
+    [Header("ã‚‚ã©ã‚‹ãƒœã‚¿ãƒ³")]
     [SerializeField] Button _backButton;
 
+    [Header("ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ¡ãƒ¼ã‚¸")]
+    [SerializeField] Image _fadeImage;
+
+    void Start()
+    {
+        _fadeImage.gameObject.SetActive(false);
+    }
     public void OnClickStart()
     {
-
+        DOFadeLoadScene(1f);
     }
 
     public void OnClickAudio()
@@ -44,5 +54,29 @@ public class TitleScripts : MonoBehaviour
         _audioCanvas.SetActive(false);
         _ruleCanvas.SetActive(false);
         _mainCanvas.SetActive(true);
+    }
+
+    public void OnClickQuit()
+    {
+        DoFadeImageOut(1f);
+    }
+
+    public void DoFadeImageOut(float color)
+    {
+        _fadeImage.gameObject.SetActive(true);
+        _fadeImage.DOFade(color, 3f).OnComplete(() =>
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#elif UNITY_STANDALONE
+      UnityEngine.Application.Quit();
+#endif
+        });
+    }
+
+    public void DOFadeLoadScene(float color)
+    {
+        _fadeImage.gameObject.SetActive(true);
+        _fadeImage.DOFade(color, 3f).OnComplete(() => SceneManager.LoadScene(_inGameName));
     }
 }
