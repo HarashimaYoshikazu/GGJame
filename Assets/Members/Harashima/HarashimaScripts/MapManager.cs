@@ -53,15 +53,6 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
     [SerializeField, Tooltip("難易度が上がった時に上がるスピード")]
     public float _additionSpeed = 50f;
 
-    void Start()
-    {
-        /*
-        //最初の難易度はEasyで初期化
-        _currentDifficulty = Difficulty.Easy;
-        //最初のみ初期位置に生成
-        Instantiate(_easyMapPrefubs, _canvas.transform);
-        */
-    }
 
     public void Init()
     {
@@ -84,7 +75,6 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
         {
             InstansMap(_currentDifficulty);
         }
-        Debug.Log(_currentDifficulty);
     }
 
     /// <summary>
