@@ -624,11 +624,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd44478e4c2bc849bf37f4a4f492d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 300
   _tilePrefub: []
   _whiteTile: {fileID: 0}
   _tileLimit: 0
-  _mapManagerTag: Respawn
   _endZoneTag: Finish
 --- !u!114 &242659924423571320
 MonoBehaviour:
@@ -961,6 +959,10 @@ PrefabInstance:
     - target: {fileID: 7006461959957365486, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
       propertyPath: m_Name
       value: MapManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
+      propertyPath: _speed
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
       propertyPath: _canvas

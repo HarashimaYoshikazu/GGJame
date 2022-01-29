@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
-    [Header("移動")]
-    [SerializeField, Tooltip("マップの移動速度")]
-    float _speed;
     [Header("タイル関係（生成する場合のみ設定が必要）")]
     [SerializeField, Tooltip("マップの子オブジェクトとして生成されるタイル")]
     GameObject[] _tilePrefub;
@@ -18,17 +15,12 @@ public class MapController : MonoBehaviour
     /// <summary>現在、このMapの子オブジェクトになっているタイル</summary>
     List<GameObject> _currentMapTile = new List<GameObject>();
     [Header("タグ")]
-    [SerializeField, Tooltip("マップマネージャーのタグ")]
-    string _mapManagerTag;
-    [SerializeField, Tooltip("マップマネージャーのタグ")]
-    string _endZoneTag;
 
-    /// <summary>シーン上に存在するMapManager</summary>
-    MapManager _mapManager;
+    [SerializeField, Tooltip("エンドゾーンのタグ")]
+    string _endZoneTag;
 
     private void Start()
     {
-        _mapManager = MainManager.I.MapManager;
         if (_tilePrefub != null)
         {
             InstansTile();
@@ -40,7 +32,7 @@ public class MapController : MonoBehaviour
     }
     void Move()
     {
-        this.transform.Translate(-(_speed) * Time.deltaTime, 0, 0);
+        this.transform.Translate(-(MapManager.I._speed) * Time.deltaTime, 0, 0);
     }
 
     /// <summary>
@@ -56,7 +48,7 @@ public class MapController : MonoBehaviour
                 int random = Random.Range(0, _tilePrefub.Length);
                 //生成したタイルをMapManagerのListに追加する
                 var go = Instantiate(_tilePrefub[random], this.transform);
-                _mapManager.TileControll(go, true);
+                MapManager.I.TileControll(go, true);
                 //※問題あり、このクラスのListにも追加
                 _currentMapTile.Add(go);
             }
@@ -64,7 +56,7 @@ public class MapController : MonoBehaviour
             {
                 //安全地帯を絶対に生成する
                 var go = Instantiate(_whiteTile, this.transform);
-                _mapManager.TileControll(go, true);
+                MapManager.I.TileControll(go, true);
                 _currentMapTile.Add(go);
             }
         }
@@ -79,10 +71,9 @@ public class MapController : MonoBehaviour
             foreach (var i in _currentMapTile)
             {
                 //MapmnagerのListから削除
-                _mapManager.TileControll(i, false);
-                //自分も削除
-                Destroy(i);
+                MapManager.I.TileControll(i, false);
             }
+            Destroy(this.gameObject);
         }
     }
 }
