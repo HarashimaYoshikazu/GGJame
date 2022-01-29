@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8694016567165686188
+--- !u!1 &4630146284764806544
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,36 +8,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3883744544879978781}
-  - component: {fileID: 7882319587398093002}
+  - component: {fileID: 362634576627928251}
+  - component: {fileID: 3427222618121647116}
   m_Layer: 0
-  m_Name: "\u4F5C\u696D\u3059\u308B\u969B\u306B\u3053\u3044\u3064\u3092\u6D88\u3057\u3066\u304B\u3089\u30D7\u30C3\u30B7\u30E5\u3092\u304A\u9858\u3044\u3057\u307E\u3059\u3002"
+  m_Name: sampleMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3883744544879978781
+--- !u!4 &362634576627928251
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8694016567165686188}
+  m_GameObject: {fileID: 4630146284764806544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.2607, y: -0.0326, z: 0}
+  m_LocalScale: {x: 22.912981, y: 10.076122, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7882319587398093002
+--- !u!212 &3427222618121647116
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8694016567165686188}
+  m_GameObject: {fileID: 4630146284764806544}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
