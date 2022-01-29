@@ -16,8 +16,8 @@ public class MapController : MonoBehaviour
     List<GameObject> _currentMapTile = new List<GameObject>();
     [Header("タグ")]
 
-    [SerializeField, Tooltip("エンドゾーンのタグ")]
-    string _endZoneTag;
+    [SerializeField, Tooltip("Destroyされる座標")]
+    float _destroyTransformX = -100f;
 
     private void Start()
     {
@@ -29,6 +29,8 @@ public class MapController : MonoBehaviour
     void Update()
     {
         Move();
+        DestroySelf();
+        Debug.Log(transform.position.x + this.gameObject.name);
     }
     void Move()
     {
@@ -63,10 +65,9 @@ public class MapController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void DestroySelf()
     {
-        //EndZoneTagに当たったら
-        if (collision.gameObject.CompareTag(_endZoneTag))
+        if (transform.position.x < _destroyTransformX)
         {
             foreach (var i in _currentMapTile)
             {
@@ -74,6 +75,6 @@ public class MapController : MonoBehaviour
                 MapManager.I.TileControll(i, false);
             }
             Destroy(this.gameObject);
-        }
+        }        
     }
 }
