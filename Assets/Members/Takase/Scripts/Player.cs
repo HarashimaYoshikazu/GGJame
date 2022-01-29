@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
 
     private void Move(Collider2D collider)
     {
+        /*
         // 移動中なので、何もさせない
         if (_tweener != null)
         {
@@ -45,10 +46,12 @@ public class Player : MonoBehaviour
         transform.parent = collider.transform;
         _tweener = transform.DOLocalMove(Vector3.zero, 1.0f);
         _tweener.onComplete = () => { _tweener = null; };
+        */
     }
 
     public void Move(float moveTargetY)
     {
+        /*
         // 移動中なので、何もさせない
         if (_tweener != null)
         {
@@ -57,6 +60,7 @@ public class Player : MonoBehaviour
 
         _tweener = transform.DOMoveY(moveTargetY, 1.0f);
         _tweener.onComplete = () => { _tweener = null; };
+        */
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
