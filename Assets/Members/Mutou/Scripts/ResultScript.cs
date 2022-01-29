@@ -10,7 +10,6 @@ public class ResultScript : MonoBehaviour
     [SerializeField, Tooltip("リザルトを表示するパネル")] Image _resultPanel = default;
     [SerializeField, Tooltip("テキストを分岐させる時の値")] Vector2Int _judgeNumber = default;
     [SerializeField, Tooltip("表示させるテキストの内容")] string[] _popUpText = new string[3];
-    [SerializeField] int num = 0;
 
     private void Start()
     {
@@ -27,7 +26,7 @@ public class ResultScript : MonoBehaviour
         if (_resultPanel)
         {
             _resultPanel.gameObject.SetActive(true);
-            var score = num;//後でゲームマネージャーからスコアの変数をもらう
+            var score = GameManager.Instance.Score;
 
             if (0 <= score && score < _judgeNumber.x)//ここで表示させるテキストをスコアによって変化させる
             {
