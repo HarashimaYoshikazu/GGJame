@@ -37,9 +37,6 @@ public class MapManager : MonoBehaviour
 
 
     [Header("生成ポジション")]
-    [SerializeField, Tooltip("初期の生成ポジション")]
-    Transform _initialTransform;
-
     [SerializeField, Tooltip("キャンバス")]
     Canvas _canvas;
 
