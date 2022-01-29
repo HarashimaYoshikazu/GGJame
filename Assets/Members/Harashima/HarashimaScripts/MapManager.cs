@@ -50,6 +50,8 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
     [Header("移動")]
     [SerializeField, Tooltip("マップの移動速度")]
     public float _speed = 100f;
+    [SerializeField, Tooltip("難易度が上がった時に上がるスピード")]
+    public float _additionSpeed = 50f;
 
     void Start()
     {
@@ -127,10 +129,14 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
         if (_changeTimes * 2 <= _instansCount && _hardMapPrefubs != null)
         {
             _currentDifficulty = Difficulty.Hard;
+            //スクロールスピードを上げる
+            _speed += _additionSpeed;
+
         }
         else if (_normalMapPrefubs != null && _changeTimes <= _instansCount)
         {
             _currentDifficulty = Difficulty.Normal;
+            _speed += _additionSpeed;
         }
     }
 
