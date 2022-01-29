@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd44478e4c2bc849bf37f4a4f492d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 100
+  _speed: 300
   _tilePrefub:
   - {fileID: 6457739871117194258, guid: 9a3fb787d33479f4cace42552f508325, type: 3}
   - {fileID: 6157428569462918046, guid: d6c00e99234b96e488dce8ca0cef606a, type: 3}

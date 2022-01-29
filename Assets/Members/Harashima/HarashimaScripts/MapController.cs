@@ -28,7 +28,7 @@ public class MapController : MonoBehaviour
 
     private void Start()
     {
-        _mapManager = GameObject.FindGameObjectWithTag(_mapManagerTag).GetComponent<MapManager>(); 
+        _mapManager = MainManager.I.MapManager;
         if (_tilePrefub != null)
         {
             InstansTile();
@@ -40,7 +40,7 @@ public class MapController : MonoBehaviour
     }
     void Move()
     {
-        this.transform.Translate(-(_speed)*Time.deltaTime, 0,0);
+        this.transform.Translate(-(_speed) * Time.deltaTime, 0, 0);
     }
 
     /// <summary>
@@ -48,27 +48,27 @@ public class MapController : MonoBehaviour
     /// </summary>
     void InstansTile()
     {
-            int _whiteIndex = Random.Range(0, _tileLimit);
-            for (int i = 0; i < _tileLimit; ++i)
+        int _whiteIndex = Random.Range(0, _tileLimit);
+        for (int i = 0; i < _tileLimit; ++i)
+        {
+            if (i != _whiteIndex)
             {
-                if (i != _whiteIndex)
-                {
-                    int random = Random.Range(0, _tilePrefub.Length);
-                    //生成したタイルをMapManagerのListに追加する
-                    var go = Instantiate(_tilePrefub[random], this.transform);
-                    _mapManager.TileControll(go,true) ;
-                    //※問題あり、このクラスのListにも追加
-                    _currentMapTile.Add(go); 
-                }
-                else
-                {
+                int random = Random.Range(0, _tilePrefub.Length);
+                //生成したタイルをMapManagerのListに追加する
+                var go = Instantiate(_tilePrefub[random], this.transform);
+                _mapManager.TileControll(go, true);
+                //※問題あり、このクラスのListにも追加
+                _currentMapTile.Add(go);
+            }
+            else
+            {
                 //安全地帯を絶対に生成する
                 var go = Instantiate(_whiteTile, this.transform);
-                _mapManager.TileControll(go,true) ;
+                _mapManager.TileControll(go, true);
                 _currentMapTile.Add(go);
-                }
             }
-        
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -79,7 +79,7 @@ public class MapController : MonoBehaviour
             foreach (var i in _currentMapTile)
             {
                 //MapmnagerのListから削除
-                _mapManager.TileControll(i,false);
+                _mapManager.TileControll(i, false);
                 //自分も削除
                 Destroy(i);
             }

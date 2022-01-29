@@ -30,11 +30,6 @@ public class MapManager : MonoBehaviour
     /// <summary>生成のカウント</summary>
     int _instansCount;
 
-    [SerializeField, Tooltip("生成のインターバル")]
-    float _interval;
-    /// <summary>生成を判定するタイマー</summary>
-    float _timer;
-
 
     [Header("生成ポジション")]
     [SerializeField, Tooltip("キャンバス")]
@@ -47,20 +42,43 @@ public class MapManager : MonoBehaviour
     /// <summary>現在の難易度</summary>
     Difficulty _currentDifficulty;
 
+    private bool _IsInit = false;
+
+    private GameObject _LastMapObj;
+    private float _LastMapObjPosX = 0;
+
     void Start()
     {
+        /*
         //最初の難易度はEasyで初期化
         _currentDifficulty = Difficulty.Easy;
         //最初のみ初期位置に生成
         Instantiate(_easyMapPrefubs, _canvas.transform);
+        */
+    }
+
+    public void Init()
+    {
+        //最初の難易度はEasyで初期化
+        _currentDifficulty = Difficulty.Easy;
+        //最初のみ初期位置に生成
+        CreateMapPrefab(_easyMapPrefubs);
+
+        _IsInit = true;
     }
 
     void Update()
     {
+        if (!_IsInit)
+        {
+            return;
+        }
+
         if (_normalMapPrefubs != null)
         {
             InstansMap(_currentDifficulty);
         }
+        Debug.Log(_currentDifficulty);
     }
 
     /// <summary>
@@ -69,26 +87,25 @@ public class MapManager : MonoBehaviour
     /// <param name="difficulty">現在の難易度</param>
     void InstansMap(Difficulty difficulty)
     {
-        _timer += Time.deltaTime;
-        if (_interval< _timer)
+        var diff = _LastMapObj.transform.position.x - _LastMapObjPosX;
+        if (Mathf.Abs(diff) > 274)
         {
             switch (difficulty)
             {
                 //ランダムなマッププレハブを生成,Listに格納
                 case Difficulty.Easy:
-                    Instantiate(_easyMapPrefubs,_canvas.transform);
+                    CreateMapPrefab(_easyMapPrefubs);
                     break;
 
                 case Difficulty.Normal:
-                    Instantiate(_normalMapPrefubs, _canvas.transform);
+                    CreateMapPrefab(_normalMapPrefubs);
                     break;
 
                 case Difficulty.Hard:
-                    Instantiate(_hardMapPrefubs, _canvas.transform);
+                    CreateMapPrefab(_hardMapPrefubs);
                     break;
             }
-            //タイマーを0に
-            _timer = 0;
+
             //生成したらカウントを増やす
             _instansCount++;
             //難易度の判定
@@ -103,11 +120,11 @@ public class MapManager : MonoBehaviour
     {
         //生成回数が規定回数を超えたら難易度を上げる
 
-        if (_changeTimes*2 <= _instansCount && _hardMapPrefubs != null)
+        if (_changeTimes * 2 <= _instansCount && _hardMapPrefubs != null)
         {
             _currentDifficulty = Difficulty.Hard;
         }
-        else if(_normalMapPrefubs != null)
+        else if (_normalMapPrefubs != null && _changeTimes <= _instansCount)
         {
             _currentDifficulty = Difficulty.Normal;
         }
@@ -118,7 +135,7 @@ public class MapManager : MonoBehaviour
     /// </summary>
     /// <param name="tile">追加するタイル</param>
     /// <param name="add">追加するならtrue、削除ならfalse</param>
-    public void TileControll(GameObject tile,bool add)
+    public void TileControll(GameObject tile, bool add)
     {
         if (add)
         {
@@ -128,6 +145,24 @@ public class MapManager : MonoBehaviour
         {
             _currentAllTile.Remove(tile);
         }
-        
-    } 
+
+    }
+
+    public void ChangeVisibleAllTiles(bool isVisible)
+    {
+        foreach (var v in CurrentAllTile)
+        {
+            if (v.TryGetComponent(out TileControllerBase tile))
+            {
+                tile.SetVisibleCoverdImage(isVisible);
+            }
+        }
+    }
+
+    private void CreateMapPrefab(GameObject obj)
+    {
+        _LastMapObj = Instantiate(obj, _canvas.transform);
+        _LastMapObjPosX = _LastMapObj.transform.position.x;
+    }
 }
+

@@ -14,13 +14,31 @@ public class Player : MonoBehaviour
 
     private Tween _tweener;
 
+    private float _Timer = 1.0f;
+
     private void Reset()
     {
         _Animator = GetComponent<Animator>();
     }
 
+    private void Update()
+    {
+        if (_tweener != null)
+        {
+            return;
+        }
+
+        _Timer -= Time.deltaTime;
+        if (_Timer <= 0)
+        {
+            MainManager.I.MapManager.ChangeVisibleAllTiles(false);
+        }
+    }
+
     public void Move(Transform target, Action onComplete)
     {
+        MainManager.I.MapManager.ChangeVisibleAllTiles(true);
+
         // 移動中なので、何もさせない
         if (_tweener != null)
         {
@@ -28,11 +46,12 @@ public class Player : MonoBehaviour
         }
 
         transform.parent = target.transform;
-        _tweener = transform.DOLocalMove(Vector3.zero, 1.0f);
+        _tweener = transform.DOLocalMove(Vector3.zero, 0.2f);
         _tweener.onComplete = () =>
         {
             _tweener = null;
             onComplete?.Invoke();
+            _Timer = 1.0f;
         };
     }
 

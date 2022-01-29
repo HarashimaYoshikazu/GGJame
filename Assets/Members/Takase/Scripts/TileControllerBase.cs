@@ -21,9 +21,7 @@ public abstract class TileControllerBase : MonoBehaviour, IPointerDownHandler
         var diff = transform.position.x - player.transform.position.x;
         if (diff > 0 && diff < PlayerDistance)
         {
-            player.transform.parent = transform;
-            player.transform.position = transform.position;
-            TileEffect();
+            player.Move(transform, TileEffect);
         }
     }
 

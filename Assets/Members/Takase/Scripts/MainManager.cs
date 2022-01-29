@@ -11,8 +11,10 @@ public class MainManager : SingletonMonoBehaviour<MainManager>
 
     public Player Player => _Player;
 
+    public MapManager MapManager => _MapManager;
+
     protected override void OnAwake()
     {
-
+        _MapManager.Init();
     }
 }
