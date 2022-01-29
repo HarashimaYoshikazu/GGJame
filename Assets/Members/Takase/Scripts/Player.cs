@@ -94,6 +94,7 @@ public class Player : MonoBehaviour
     private void SendGameOver()
     {
         // GameManagerにゲームが終了したことを通知
+        GameManager.Instance.ChangeState(GameState.Result);
     }
 
 }
