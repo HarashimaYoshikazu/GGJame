@@ -6,6 +6,9 @@ public class OutTileController : TileControllerBase
 {
     protected override void TileEffect()
     {
-        GameManager.Instance.ChangeState(GameState.Result);
+        MainManager.I.Player.PlayerDiedAnime(() =>
+        {
+            GameManager.Instance.ChangeState(GameState.Result);
+        });
     }
 }

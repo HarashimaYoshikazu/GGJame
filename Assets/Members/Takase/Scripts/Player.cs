@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
+using Sounds;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Animator _Animator;
     [SerializeField] private Transform _PlayerInCircle;
     [SerializeField] private Transform _PlayerOutCircle;
+    [SerializeField] private CanvasGroup _PlayerCanvasGroup;
 
     private Tween _tweener;
 
@@ -20,9 +22,11 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Transform m_MoveTarget;
 
+    private bool _died = false;
 
     private void Start()
     {
+        _died = false;
         //回転を無限ループさせる
         _PlayerInCircle.transform.DOLocalRotate(new Vector3(0, 0, 360f), 5f, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
         _PlayerOutCircle.transform.DOLocalRotate(new Vector3(0, 0, -360f), 5f, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
@@ -43,7 +47,7 @@ public class Player : MonoBehaviour
 
         if (transform.position.x < -100f)
         {
-            GameManager.Instance.ChangeState(GameState.Result);
+            PlayerDiedAnime(() => GameManager.Instance.ChangeState(GameState.Result));
         }
 
         if (_tweener != null)
@@ -78,5 +82,25 @@ public class Player : MonoBehaviour
             onComplete?.Invoke();
             _Timer = 1.0f;
         };
+    }
+
+    /// <summary>
+    /// 死亡時演出処理
+    /// </summary>
+    public void PlayerDiedAnime(System.Action compriteCallback)
+    {
+        if (_died)
+            return;
+        _died = true;
+        MainManager.I.MapManager.ChangeVisibleAllTiles(false);
+        SoundManager.Request(1, SoundGroupID.SE);
+        _PlayerInCircle.DOPause();
+        _PlayerOutCircle.DOPause();
+        _PlayerCanvasGroup.DOFade(0f, 1.0f).SetEase(Ease.OutSine);
+        transform.DOScale(20.0f, 1.0f).SetEase(Ease.OutSine)
+            .OnComplete(() =>
+            {
+                compriteCallback();
+            });
     }
 }

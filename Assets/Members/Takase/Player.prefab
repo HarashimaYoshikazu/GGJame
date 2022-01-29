@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 7347016713867899356}
   - component: {fileID: 7347016713867899359}
   - component: {fileID: 7347016713867899358}
+  - component: {fileID: 6947005553760517498}
   m_Layer: 5
   m_Name: Player
   m_TagString: Player
@@ -312,3 +313,16 @@ MonoBehaviour:
   _Animator: {fileID: 7347016713867899359}
   _PlayerInCircle: {fileID: 6733842397258674752}
   _PlayerOutCircle: {fileID: 7086218179988788599}
+  _PlayerCanvasGroup: {fileID: 6947005553760517498}
+--- !u!225 &6947005553760517498
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7347016713867899354}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
