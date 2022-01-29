@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using Pools;
 
@@ -14,7 +14,7 @@ namespace Sounds
 
     public class SoundManager : MonoBehaviour
     {
-        // ‚Ç‚±‚©‚ç‚Å‚àŒÄ‚Ño‚¹‚é‚æ‚¤‚É
+        // ã©ã“ã‹ã‚‰ã§ã‚‚å‘¼ã³å‡ºã›ã‚‹ã‚ˆã†ã«
         private static SoundManager _instance = null;
         public static SoundManager Instance => _instance;
 
@@ -50,9 +50,9 @@ namespace Sounds
         }
 
         /// <summary>
-        /// –Â‚ç‚·‰¹Œ¹‚ğRequesut. –¼‘O‚ÅŒŸõ
+        /// é³´ã‚‰ã™éŸ³æºã‚’Requesut. åå‰ã§æ¤œç´¢
         /// </summary>
-        /// <param name="name">Sound‚Ì–¼‘O</param>
+        /// <param name="name">Soundã®åå‰</param>
         /// <param name="groupID">GrounpID</param>
         static public void Request(string name, SoundGroupID groupID)
         {
@@ -70,9 +70,9 @@ namespace Sounds
         }
 
         /// <summary>
-        /// –Â‚ç‚·‰¹Œ¹‚ğRequesut. ID‚ÅŒŸõ
+        /// é³´ã‚‰ã™éŸ³æºã‚’Requesut. IDã§æ¤œç´¢
         /// </summary>
-        /// <param name="id">Sound‚ÌID</param>
+        /// <param name="id">Soundã®ID</param>
         /// <param name="groupID">GrounpID</param>
         static public void Request(int id, SoundGroupID groupID)
         {
@@ -90,9 +90,9 @@ namespace Sounds
         }
 
         /// <summary>
-        /// Œ»İ—¬‚ê‚Ä‚¢‚éLoop‰¹Œ¹‚Ìíœ. Name‚ÅŒŸõ
+        /// ç¾åœ¨æµã‚Œã¦ã„ã‚‹LoopéŸ³æºã®å‰Šé™¤. Nameã§æ¤œç´¢
         /// </summary>
-        /// <param name="name">íœ‚·‚éSoundName</param>
+        /// <param name="name">å‰Šé™¤ã™ã‚‹SoundName</param>
         static public void DeleteLoopSounds(string name)
         {
             if (Instance._loopSounds.Count <= 0) Debug.Log("Nothing DeleteData");
@@ -102,9 +102,9 @@ namespace Sounds
         }
 
         /// <summary>
-        /// Œ»İ—¬‚ê‚Ä‚¢‚éLoop‰¹Œ¹‚Ìíœ. ID‚ÅŒŸõ
+        /// ç¾åœ¨æµã‚Œã¦ã„ã‚‹LoopéŸ³æºã®å‰Šé™¤. IDã§æ¤œç´¢
         /// </summary>
-        /// <param name="id">íœ‚·‚éSoundID</param>
+        /// <param name="id">å‰Šé™¤ã™ã‚‹SoundID</param>
         static public void DeleteLoopSounds(int id)
         {
             if (Instance._loopSounds.Count <= 0) Debug.Log("Nothing DeleteData");

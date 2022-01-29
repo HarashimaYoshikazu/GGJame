@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 using Pools;
 
@@ -79,7 +79,7 @@ namespace Sounds
             _source.Play();
         }
 
-        // Action�Ƌ��ɌĂ΂��
+        // Actionと共に呼ばれる
         public void Init()
         {
             _source = null;
