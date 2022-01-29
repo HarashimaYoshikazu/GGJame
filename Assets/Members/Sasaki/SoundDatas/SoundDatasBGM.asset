@@ -20,3 +20,10 @@ MonoBehaviour:
     Volume: 0.5
     SpatialBlend: 0
     Loop: 1
+  - Name: testBGM
+    ID: 1
+    SoundType: 0
+    Clip: {fileID: 8300000, guid: 8c3c6ff8e95848244b9c721d2ce7e0f2, type: 3}
+    Volume: 0.5
+    SpatialBlend: 0
+    Loop: 1
