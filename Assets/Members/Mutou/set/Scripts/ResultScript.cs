@@ -9,6 +9,8 @@ public class ResultScript : MonoBehaviour
     [SerializeField, Tooltip("リザルト表示時に表示されるテキスト")] Text _resultText = default;
     [SerializeField, Tooltip("テキストを分岐させる時の値")] Vector2Int _judgeNumber = default;
     [SerializeField, Tooltip("表示させるイメージ")] Image[] _popUpImage = default;
+    [SerializeField] RankingManage _ranking = default;
+    [SerializeField] Animator _animCanvas = default;
 
     /// <summary>
     /// リザルトのパネルを表示させる関数
@@ -33,5 +35,13 @@ public class ResultScript : MonoBehaviour
                 _popUpImage[2].gameObject.SetActive(true);
             }
         }
+    }
+    public void GetRankingData()
+    {
+        _animCanvas.SetBool("ranking",_ranking.IsRankIn());
+    }
+    public void BackToResult()
+    {
+        _animCanvas.SetBool("ranking", false);
     }
 }

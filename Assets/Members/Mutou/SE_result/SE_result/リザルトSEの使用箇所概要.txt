@@ -1,0 +1,8 @@
+1）文字が入力されるときのSE
+SE_result1_text
+
+6）★のse
+SE_result6_star
+
+8）ランク付け
+SE_result8_RANKIN
