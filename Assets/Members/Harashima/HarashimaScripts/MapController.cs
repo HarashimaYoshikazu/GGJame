@@ -33,6 +33,11 @@ public class MapController : MonoBehaviour
     }
     void Move()
     {
+        if (!MapManager.I.CanStageMove)
+        {
+            return;
+        }
+
         this.transform.Translate(-(MapManager.I._speed) * Time.deltaTime, 0, 0);
     }
 

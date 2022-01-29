@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CoveredImage: {fileID: 6833068218489962652}
+  _Animator: {fileID: 8392511343165300011}
   _AddScore: 1
 --- !u!95 &8392511343165300011
 Animator:

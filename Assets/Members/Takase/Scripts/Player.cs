@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
 
     private float _Timer = 1.0f;
 
+    [SerializeField] private Transform m_MoveTarget;
+
+
     private void Start()
     {
         //回転を無限ループさせる
@@ -33,6 +36,10 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (_tweener == null && m_MoveTarget)
+        {
+            transform.position = m_MoveTarget.position;
+        }
 
         if (transform.position.x < -100f)
         {
@@ -62,8 +69,9 @@ public class Player : MonoBehaviour
         }
 
         _PlayerOutCircle.transform.DOScale(new Vector3(2f, 2f, 1f), 0.1f).SetLoops(2, LoopType.Yoyo).SetEase(Ease.Linear);
-        transform.parent = target.transform;
-        _tweener = transform.DOLocalMove(Vector3.zero, 0.2f);
+
+        m_MoveTarget = target;
+        _tweener = transform.DOMove(target.position * 0.95f, 0.2f);
         _tweener.onComplete = () =>
         {
             _tweener = null;
