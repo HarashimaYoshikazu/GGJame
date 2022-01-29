@@ -43,7 +43,6 @@ public class TitleScripts : MonoBehaviour
 
     public void OnClickAudio()
     {
-        _mainCanvas.SetActive(false);
         _audioCanvas.SetActive(true);
     }
 
@@ -55,7 +54,6 @@ public class TitleScripts : MonoBehaviour
 
     public void OnClickRule()
     {
-        _mainCanvas.SetActive(false);
         _ruleCanvas.SetActive(true);
     }
 
@@ -64,7 +62,6 @@ public class TitleScripts : MonoBehaviour
         _audioCanvas.SetActive(false);
         _ruleCanvas.SetActive(false);
         _rankCanvas.SetActive(false);
-        _mainCanvas.SetActive(true);
     }
 
     public void OnClickQuit()
