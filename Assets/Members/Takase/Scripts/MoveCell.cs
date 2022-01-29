@@ -12,6 +12,5 @@ public class MoveCell : MonoBehaviour
 
     public void OnClick()
     {
-        _Player.Move(_moveTargetY);
     }
 }

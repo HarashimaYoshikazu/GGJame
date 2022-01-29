@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
@@ -18,87 +19,29 @@ public class Player : MonoBehaviour
         _Animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    public void Move(Transform target, Action onComplete)
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            //メインカメラ上のマウスカーソルのある位置からRayを飛ばす
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-
-            // クリックしたものが対象であれば、移動する
-            if (hit.collider != null && hit.collider.name == "w")
-            {
-                Move(hit.collider);
-            }
-        }
-    }
-
-    private void Move(Collider2D collider)
-    {
-        /*
         // 移動中なので、何もさせない
         if (_tweener != null)
         {
             return;
         }
 
-        transform.parent = collider.transform;
+        transform.parent = target.transform;
         _tweener = transform.DOLocalMove(Vector3.zero, 1.0f);
-        _tweener.onComplete = () => { _tweener = null; };
-        */
-    }
-
-    public void Move(float moveTargetY)
-    {
-        /*
-        // 移動中なので、何もさせない
-        if (_tweener != null)
+        _tweener.onComplete = () =>
         {
-            return;
-        }
-
-        _tweener = transform.DOMoveY(moveTargetY, 1.0f);
-        _tweener.onComplete = () => { _tweener = null; };
-        */
+            _tweener = null;
+            onComplete?.Invoke();
+        };
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (IsCheckForcedScrollGameOver(collision))
+        if (collision.gameObject.CompareTag("Finish"))
         {
-            // 強制スクロールでGameOverになる演出があれば
 
-            SendGameOver();
-            return;
         }
-        else if (IsCheckDropGameOver(collision))
-        {
-            // ダメなマスでGameOverになる演出があれば
-
-            SendGameOver();
-            return;
-        }
-
-        // スコアアップ処理
-    }
-
-    private bool IsCheckForcedScrollGameOver(Collider2D collision)
-    {
-        // とりあえず仮置き
-        return collision.gameObject.tag == "ScrollWall";
-    }
-
-    private bool IsCheckDropGameOver(Collider2D collision)
-    {
-        // とりあえず仮置き
-        return collision.gameObject.tag == "Drop";
-    }
-
-    private void SendGameOver()
-    {
-        // GameManagerにゲームが終了したことを通知
-        GameManager.Instance.ChangeState(GameState.Result);
     }
 
 }

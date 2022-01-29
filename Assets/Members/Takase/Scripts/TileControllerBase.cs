@@ -12,7 +12,7 @@ public abstract class TileControllerBase : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        var player = GameObject.FindGameObjectWithTag("Player");
+        var player = MainManager.I?.Player;
         if (player == null)
         {
             return;
