@@ -14,7 +14,7 @@ public enum Difficulty
 /// <summary>
 /// マップを生成管理するクラス
 /// </summary>
-public class MapManager : MonoBehaviour
+public class MapManager : SingletonMonoBehaviour<MapManager>
 {
     [Header("生成するマップのプレハブ")]
     [SerializeField, Tooltip("イージー")]
@@ -46,6 +46,10 @@ public class MapManager : MonoBehaviour
 
     private GameObject _LastMapObj;
     private float _LastMapObjPosX = 0;
+
+    [Header("移動")]
+    [SerializeField, Tooltip("マップの移動速度")]
+    public float _speed = 100f;
 
     void Start()
     {

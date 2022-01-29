@@ -559,6 +559,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7006461959957365486, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
+      propertyPath: m_TagString
+      value: Respawn
+      objectReference: {fileID: 0}
     - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
       propertyPath: _canvas
       value: 
