@@ -18,6 +18,35 @@ public class Player : MonoBehaviour
         _Animator = GetComponent<Animator>();
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            //メインカメラ上のマウスカーソルのある位置からRayを飛ばす
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+
+            // クリックしたものが対象であれば、移動する
+            if (hit.collider != null && hit.collider.name == "w")
+            {
+                Move(hit.collider);
+            }
+        }
+    }
+
+    private void Move(Collider2D collider)
+    {
+        // 移動中なので、何もさせない
+        if (_tweener != null)
+        {
+            return;
+        }
+
+        transform.parent = collider.transform;
+        _tweener = transform.DOLocalMove(Vector3.zero, 1.0f);
+        _tweener.onComplete = () => { _tweener = null; };
+    }
+
     public void Move(float moveTargetY)
     {
         // 移動中なので、何もさせない
