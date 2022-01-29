@@ -16,7 +16,7 @@ MonoBehaviour:
   - Name: SampleSE
     ID: 0
     SoundType: 1
-    Clip: {fileID: 8300000, guid: 808e9ef18495b3a4b95fcded4c0df78c, type: 3}
+    Clip: {fileID: 8300000, guid: 3d6129a905119404fb86c7c39ad4294f, type: 3}
     Volume: 0.5
     SpatialBlend: 0
     Loop: 0
