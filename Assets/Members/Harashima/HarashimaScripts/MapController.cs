@@ -4,31 +4,32 @@ using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
+    [Header("移動")]
+    [SerializeField, Tooltip("マップの移動速度")]
+    float _speed;
+    [Header("タイル関係（生成する場合のみ設定が必要）")]
     [SerializeField, Tooltip("マップの子オブジェクトとして生成されるタイル")]
     GameObject[] _tilePrefub;
     [SerializeField, Tooltip("安全地帯のタイル")]
     GameObject _whiteTile;
     [SerializeField, Tooltip("タイルの生成上限")]
     int _tileLimit;
-    [SerializeField, Tooltip("マップの移動速度")]
-    float _speed;
+    List<GameObject> _currentTile = new List<GameObject>();
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
+    private void Start()
     {
         if (_tilePrefub != null)
         {
             InstansTile();
         }
-        
+    }
+    void Update()
+    {
+        Move();       
     }
     void Move()
     {
-        
+        this.transform.Translate(-(_speed)*Time.deltaTime, 0,0);
     }
 
     /// <summary>
@@ -41,14 +42,14 @@ public class MapController : MonoBehaviour
             {
                 if (i != _whiteIndex)
                 {
-                    int random = Random.Range(0, _tileLimit);
+                    int random = Random.Range(0, _tilePrefub.Length);
 
-                    Instantiate(_tilePrefub[random]);
+                    _currentTile.Add(Instantiate(_tilePrefub[random], this.transform)) ;
                 }
                 else
                 {
                     //安全地帯を絶対に生成する
-                    Instantiate(_whiteTile);
+                    _currentTile.Add(Instantiate(_whiteTile, this.transform)) ;
                 }
             }
         

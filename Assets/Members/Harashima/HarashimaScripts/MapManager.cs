@@ -1,8 +1,8 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// Œ»İ‚Ì“ïˆÕ“x‚ÌState
+/// ç¾åœ¨ã®é›£æ˜“åº¦ã®State
 /// </summary>
 public enum Difficulty
 {
@@ -12,50 +12,47 @@ public enum Difficulty
 }
 
 /// <summary>
-/// ƒ}ƒbƒv‚ğ¶¬ŠÇ—‚·‚éƒNƒ‰ƒX
+/// ãƒãƒƒãƒ—ã‚’ç”Ÿæˆç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹
 /// </summary>
 public class MapManager : MonoBehaviour
 {
-    [Header("¶¬‚·‚éƒ}ƒbƒv‚ÌƒvƒŒƒnƒu")]
-    [SerializeField, Tooltip("ƒC[ƒW[")]
-    GameObject[] _easyMapPrefubs;
-    [SerializeField, Tooltip("ƒm[ƒ}ƒ‹")]
-    GameObject[] _normalMapPrefubs;
-    [SerializeField, Tooltip("ƒn[ƒh")]
-    GameObject[] _hardMapPrefubs;
+    [Header("ç”Ÿæˆã™ã‚‹ãƒãƒƒãƒ—ã®ãƒ—ãƒ¬ãƒãƒ–")]
+    [SerializeField, Tooltip("ã‚¤ãƒ¼ã‚¸ãƒ¼")]
+    GameObject _easyMapPrefubs;
+    [SerializeField, Tooltip("ãƒãƒ¼ãƒãƒ«")]
+    GameObject _normalMapPrefubs;
+    [SerializeField, Tooltip("ãƒãƒ¼ãƒ‰")]
+    GameObject _hardMapPrefubs;
 
-    [Header("¶¬î•ñ")]
-    [SerializeField, Tooltip("‰½‰ñ¶¬‚µ‚½‚ç“ïˆÕ“x‚ğ•ÏX‚·‚é‚©")]
+    [Header("ç”Ÿæˆæƒ…å ±")]
+    [SerializeField, Tooltip("ä½•å›ç”Ÿæˆã—ãŸã‚‰é›£æ˜“åº¦ã‚’å¤‰æ›´ã™ã‚‹ã‹")]
     int _changeTimes = 3;
-    /// <summary>¶¬‚ÌƒJƒEƒ“ƒg</summary>
+    /// <summary>ç”Ÿæˆã®ã‚«ã‚¦ãƒ³ãƒˆ</summary>
     int _instansCount;
 
-    [SerializeField, Tooltip("¶¬‚ÌƒCƒ“ƒ^[ƒoƒ‹")]
+    [SerializeField, Tooltip("ç”Ÿæˆã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒãƒ«")]
     float _interval;
-    /// <summary>¶¬‚ğ”»’è‚·‚éƒ^ƒCƒ}[</summary>
+    /// <summary>ç”Ÿæˆã‚’åˆ¤å®šã™ã‚‹ã‚¿ã‚¤ãƒãƒ¼</summary>
     float _timer;
 
-    /// <summary>Œ»İ‚Ìƒ}ƒbƒv‚ª“ü‚Á‚Ä‚¢‚éƒŠƒXƒg</summary>
-    List<GameObject> _currentMaps  = new List<GameObject>() ;
 
-    [Header("¶¬ƒ|ƒWƒVƒ‡ƒ“")]
-    [SerializeField, Tooltip("‰Šú‚Ì¶¬ƒ|ƒWƒVƒ‡ƒ“")]
+    [Header("ç”Ÿæˆãƒã‚¸ã‚·ãƒ§ãƒ³")]
+    [SerializeField, Tooltip("åˆæœŸã®ç”Ÿæˆãƒã‚¸ã‚·ãƒ§ãƒ³")]
     Transform _initialTransform;
-    [SerializeField,Tooltip("2‰ñ–ÚˆÈ~‚Ì¶¬ƒ|ƒWƒVƒ‡ƒ“")]
-    Transform _instanceTransform;
 
-    /// <summary>ˆê“I‚É—v‘f”‚É‰‚¶‚½’l‚ğ•Û‘¶‚µ‚Ä‚¨‚­ƒ‰ƒ“ƒ_ƒ€•Ï”</summary>
-    int _random;
-    /// <summary>Œ»İ‚Ì“ïˆÕ“x</summary>
+    [SerializeField, Tooltip("ã‚­ãƒ£ãƒ³ãƒã‚¹")]
+    Canvas _canvas;
+
+
+    /// <summary>ç¾åœ¨ã®é›£æ˜“åº¦</summary>
     Difficulty _currentDifficulty;
 
     void Start()
     {
-        //Å‰‚Ì“ïˆÕ“x‚ÍEasy‚Å‰Šú‰»
+        //æœ€åˆã®é›£æ˜“åº¦ã¯Easyã§åˆæœŸåŒ–
         _currentDifficulty = Difficulty.Easy;
-        //Å‰‚Ì‚İ‰ŠúˆÊ’u‚É¶¬
-        _random = Random.Range(0,_easyMapPrefubs.Length);
-        _currentMaps.Add(Instantiate(_easyMapPrefubs[_random], _initialTransform.position,Quaternion.identity));
+        //æœ€åˆã®ã¿åˆæœŸä½ç½®ã«ç”Ÿæˆ
+        Instantiate(_easyMapPrefubs, _canvas.transform);
     }
 
     void Update()
@@ -67,9 +64,9 @@ public class MapManager : MonoBehaviour
     }
 
     /// <summary>
-    /// “ïˆÕ“x‚É‰‚¶‚Ä¶¬‚·‚éMap‚ğ•ÏX‚·‚éŠÖ”
+    /// é›£æ˜“åº¦ã«å¿œã˜ã¦ç”Ÿæˆã™ã‚‹Mapã‚’å¤‰æ›´ã™ã‚‹é–¢æ•°
     /// </summary>
-    /// <param name="difficulty">Œ»İ‚Ì“ïˆÕ“x</param>
+    /// <param name="difficulty">ç¾åœ¨ã®é›£æ˜“åº¦</param>
     void InstansMap(Difficulty difficulty)
     {
         _timer += Time.deltaTime;
@@ -77,42 +74,36 @@ public class MapManager : MonoBehaviour
         {
             switch (difficulty)
             {
-                //ƒ‰ƒ“ƒ_ƒ€‚Èƒ}ƒbƒvƒvƒŒƒnƒu‚ğ¶¬,List‚ÉŠi”[
+                //ãƒ©ãƒ³ãƒ€ãƒ ãªãƒãƒƒãƒ—ãƒ—ãƒ¬ãƒãƒ–ã‚’ç”Ÿæˆ,Listã«æ ¼ç´
                 case Difficulty.Easy:
-                    _random = Random.Range(0, _easyMapPrefubs.Length);
-                    _currentMaps.Add(Instantiate(_easyMapPrefubs[_random], _instanceTransform.position, Quaternion.identity));
+                    Instantiate(_easyMapPrefubs,_canvas.transform);
                     break;
 
                 case Difficulty.Normal:
-                    _random = Random.Range(0, _normalMapPrefubs.Length);
-                    _currentMaps.Add(Instantiate(_normalMapPrefubs[_random], _instanceTransform.position, Quaternion.identity));
+                    Instantiate(_normalMapPrefubs, _canvas.transform);
                     break;
 
                 case Difficulty.Hard:
-                    _random = Random.Range(0, _hardMapPrefubs.Length);
-                    _currentMaps.Add(Instantiate(_hardMapPrefubs[_random], _instanceTransform.position, Quaternion.identity));
+                    Instantiate(_hardMapPrefubs, _canvas.transform);
                     break;
             }
-            //ƒ^ƒCƒ}[‚ğ0‚É
+            //ã‚¿ã‚¤ãƒãƒ¼ã‚’0ã«
             _timer = 0;
-            //¶¬‚µ‚½‚çƒJƒEƒ“ƒg‚ğ‘‚â‚·
+            //ç”Ÿæˆã—ãŸã‚‰ã‚«ã‚¦ãƒ³ãƒˆã‚’å¢—ã‚„ã™
             _instansCount++;
-            //“ïˆÕ“x‚Ì”»’è
+            //é›£æ˜“åº¦ã®åˆ¤å®š
             ChangeDifficulty();
         }
     }
 
     /// <summary>
-    /// ŠÔ‚É‰‚¶‚Ä“ïˆÕ“x‚ğ•ÏX‚·‚éŠÖ”
+    /// æ™‚é–“ã«å¿œã˜ã¦é›£æ˜“åº¦ã‚’å¤‰æ›´ã™ã‚‹é–¢æ•°
     /// </summary>
     void ChangeDifficulty()
     {
-        //¶¬‰ñ”‚ª‹K’è‰ñ”‚ğ’´‚¦‚½‚ç“ïˆÕ“x‚ğã‚°‚é
-        if (_currentDifficulty == Difficulty.Easy)
-        {
-            return;
-        }
-        else if (_changeTimes*2 <= _instansCount && _hardMapPrefubs != null)
+        //ç”Ÿæˆå›æ•°ãŒè¦å®šå›æ•°ã‚’è¶…ãˆãŸã‚‰é›£æ˜“åº¦ã‚’ä¸Šã’ã‚‹
+
+        if (_changeTimes*2 <= _instansCount && _hardMapPrefubs != null)
         {
             _currentDifficulty = Difficulty.Hard;
         }
