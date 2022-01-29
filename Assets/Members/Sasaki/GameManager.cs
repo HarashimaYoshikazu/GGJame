@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public enum GameState
 {
@@ -19,7 +20,14 @@ public class GameManager
     public GameState CurrentState { get; set; } = GameState.Title;
     public int Score { get; private set; }
 
-    public void AddScore() => Score++;
+    public void AddScore(int value)
+    {
+        Score += value;
+        OnAddScore?.Invoke(Score);
+    }
+
+    public Action<int> OnAddScore;
+
     public void ChangeState(GameState state)
     {
         if (CurrentState == state)

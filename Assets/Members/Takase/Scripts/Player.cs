@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
     private void Update()
     {
 
-        Debug.LogError(transform.position.x);
         if (transform.position.x < -100f)
         {
             GameManager.Instance.ChangeState(GameState.Result);

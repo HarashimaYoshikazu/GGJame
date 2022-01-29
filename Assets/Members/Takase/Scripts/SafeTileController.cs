@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SafeTileController : TileControllerBase
 {
+    [SerializeField] private int _AddScore = 1;
+
     protected override void TileEffect()
     {
-        Debug.LogError("safe");
-        GameManager.Instance.AddScore();
+        GameManager.Instance.AddScore(_AddScore);
     }
 }

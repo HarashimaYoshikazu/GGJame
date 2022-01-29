@@ -6,7 +6,6 @@ public class OutTileController : TileControllerBase
 {
     protected override void TileEffect()
     {
-        Debug.LogError("out");
         GameManager.Instance.ChangeState(GameState.Result);
     }
 }
