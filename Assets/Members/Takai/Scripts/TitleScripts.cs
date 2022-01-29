@@ -22,6 +22,10 @@ public class TitleScripts : MonoBehaviour
     [SerializeField] Button _ruleButton;
     [SerializeField] GameObject _ruleCanvas;
 
+    [Header("ランキングボタン")]
+    [SerializeField] Button _runkButton;
+    [SerializeField] GameObject _rankCanvas;
+
     [Header("もどるボタン")]
     [SerializeField] Button _backButton;
 
@@ -31,6 +35,7 @@ public class TitleScripts : MonoBehaviour
     void Start()
     {
         _fadeImage.gameObject.SetActive(false);
+        FindObjectOfType<RankingManage>().LoadRanking();
     }
     public void OnClickStart()
     {
@@ -43,6 +48,12 @@ public class TitleScripts : MonoBehaviour
         _audioCanvas.SetActive(true);
     }
 
+    public void OnClickRank()
+    {
+        _rankCanvas.SetActive(true);
+        
+    }
+
     public void OnClickRule()
     {
         _mainCanvas.SetActive(false);
@@ -53,6 +64,7 @@ public class TitleScripts : MonoBehaviour
     {
         _audioCanvas.SetActive(false);
         _ruleCanvas.SetActive(false);
+        _rankCanvas.SetActive(false);
         _mainCanvas.SetActive(true);
     }
 
