@@ -61,6 +61,7 @@ public class RankingManage : MonoBehaviour
                     Debug.Log("IsRankIn");
                     _isRankIn = true;
                     StartCoroutine(WaitInputName(score));
+                    SetRankingText(objList);
                 }
                 else
                 {
