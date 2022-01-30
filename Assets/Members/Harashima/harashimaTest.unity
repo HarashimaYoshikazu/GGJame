@@ -2464,8 +2464,12 @@ PrefabInstance:
       objectReference: {fileID: 637117013}
     - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
       propertyPath: _changeTimes
-      value: 20
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
+      propertyPath: _thirdPrefub
+      value: 
+      objectReference: {fileID: 8307217825612657544, guid: b0d99520a6549714aa36cf790574b938, type: 3}
     - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
       propertyPath: _speedUpLimit
       value: 800

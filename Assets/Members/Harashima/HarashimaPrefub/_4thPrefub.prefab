@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8307217825612657546}
   - component: {fileID: 8307217825612657541}
   m_Layer: 5
-  m_Name: _SampleNormalMap
+  m_Name: _4thPrefub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,6 +91,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tilePrefub:
   - {fileID: 6457739871117194258, guid: 9a3fb787d33479f4cace42552f508325, type: 3}
+  - {fileID: 8856224660358605162, guid: f5584a4e786aec2429dd274b12d1ef13, type: 3}
+  - {fileID: 8856224660358605162, guid: f5584a4e786aec2429dd274b12d1ef13, type: 3}
+  - {fileID: 8856224660358605162, guid: f5584a4e786aec2429dd274b12d1ef13, type: 3}
   - {fileID: 8856224660358605162, guid: f5584a4e786aec2429dd274b12d1ef13, type: 3}
   _safeTile: {fileID: 8856224660358605162, guid: f5584a4e786aec2429dd274b12d1ef13, type: 3}
   _tileLimit: 5
