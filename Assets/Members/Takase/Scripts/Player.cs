@@ -29,6 +29,9 @@ public class Player : MonoBehaviour
 
     private bool _isDied = false;
 
+    private bool _isGeteItem = false;
+    public bool IsGeteItem { get => _isGeteItem; set => _isGeteItem = value; }
+
     private void Start()
     {
         _isDied = false;
@@ -64,7 +67,7 @@ public class Player : MonoBehaviour
         }
 
         _Timer -= Time.deltaTime;
-        if (_Timer <= 0)
+        if (_Timer <= 0 )
         {
             MainManager.I.MapManager.ChangeVisibleAllTiles(false);
         }
@@ -72,7 +75,11 @@ public class Player : MonoBehaviour
 
     public void Move(Transform target, Action onComplete)
     {
-        MainManager.I.MapManager.ChangeVisibleAllTiles(true);
+        if ( !_isGeteItem)
+        {
+            MainManager.I.MapManager.ChangeVisibleAllTiles(true);
+        }
+        
 
         // 移動中なので、何もさせない
         if (_tweener != null)
