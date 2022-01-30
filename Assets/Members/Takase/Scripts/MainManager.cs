@@ -10,7 +10,7 @@ public class MainManager : SingletonMonoBehaviour<MainManager>
     [SerializeField] private Canvas _StageCanvas;
     [SerializeField] private UIGame _UIGame;
 
-    [SerializeField] private GameObject _resultGameObject;
+    [SerializeField] private ResultScript resultScript;
 
     public Player Player => _Player;
 
@@ -28,9 +28,10 @@ public class MainManager : SingletonMonoBehaviour<MainManager>
     private void Update()
     {
         // リザルトステート状態になったら、リザルト画面アクティブ切替
-        if (GameManager.Instance.CurrentState == GameState.Result && !_resultGameObject.activeSelf)
+        if (GameManager.Instance.CurrentState == GameState.Result && !resultScript.gameObject.activeSelf)
         {
-            _resultGameObject.SetActive(true);
+            resultScript.gameObject.SetActive(true);
+            resultScript.ViewResult();
         }
     }
 }
