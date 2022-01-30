@@ -94,6 +94,7 @@ MonoBehaviour:
   - {fileID: 8856224660358605162, guid: f5584a4e786aec2429dd274b12d1ef13, type: 3}
   - {fileID: 6157428569462918046, guid: 972a610c23422f547874a48917a6463a, type: 3}
   - {fileID: 6157428569462918046, guid: e1e934389f4e29f4c92f46b6d1d02e1a, type: 3}
+  - {fileID: 8856224660358605162, guid: f5584a4e786aec2429dd274b12d1ef13, type: 3}
   _safeTile: {fileID: 8856224660358605162, guid: f5584a4e786aec2429dd274b12d1ef13, type: 3}
   _tileLimit: 3
   _destroyTransformX: -100
