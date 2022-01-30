@@ -54,6 +54,8 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
     public float _speedDownLimit;
     [SerializeField, Tooltip("スピードの上限")]
     public float _speedUpLimit;
+    [SerializeField, Tooltip("一時的に下がるスピード(スピードアイテムで使用)")]
+    public　float _decreaseSpeed = 100f;
     [SerializeField, Tooltip("難易度が上がった時に上がるスピード")]
     public float _additionSpeed = 50f;
     [SerializeField, Tooltip("次タイルを表示するしきい値")]
