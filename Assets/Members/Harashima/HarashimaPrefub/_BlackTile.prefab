@@ -167,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CoveredImage: {fileID: 6017419355182154940}
   _Animator: {fileID: 0}
+  _CanPlaySE: 0
 --- !u!1 &8763241438316135506
 GameObject:
   m_ObjectHideFlags: 0
