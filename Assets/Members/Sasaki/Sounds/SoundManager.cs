@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using Pools;
+using System.Linq;
 
 namespace Sounds
 {
@@ -64,6 +65,12 @@ namespace Sounds
 
             SoundData data = group.SoundDataBase.Datas.Find(s => s.Name == name);
             if (data == null) Debug.Log("Missing. Don't MatchName");
+            // BGMでは、要求のあったものと同一のIDがすでに再生中の場合、何もしないようにする
+            // この書き方だと事故りそうなので、正直よくない
+            if (groupID == SoundGroupID.BGM && _instance._loopSounds.Any(s => s.ID == data.ID))
+            {
+                return;
+            }
 
             SoundEffect effect = Instance._soundPool
                     .UseRequest().GetComponent<SoundEffect>();
