@@ -1548,6 +1548,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 651404951565902539, guid: c5ad7f5265112644eb32846910ec9c2a, type: 3}
   m_PrefabInstance: {fileID: 1428743997}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1493807607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 651404951565902545, guid: c5ad7f5265112644eb32846910ec9c2a, type: 3}
+  m_PrefabInstance: {fileID: 1428743997}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493807604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e1de88fb0cc854f9ea25d5f85db4e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1499752214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,6 +2179,10 @@ PrefabInstance:
       propertyPath: _StageCanvas
       value: 
       objectReference: {fileID: 637117013}
+    - target: {fileID: 261750816425011852, guid: fde4640c22ff36f4cb6e41d39106c34a, type: 3}
+      propertyPath: resultScript
+      value: 
+      objectReference: {fileID: 1493807607}
     - target: {fileID: 261750816425011852, guid: fde4640c22ff36f4cb6e41d39106c34a, type: 3}
       propertyPath: _resultGameObject
       value: 
