@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tilePrefub:
-  - {fileID: 6157428569462918046, guid: e1e934389f4e29f4c92f46b6d1d02e1a, type: 3}
+  - {fileID: 6157428569462918046, guid: 7c739e669d1b8994598300df339fcad9, type: 3}
   _safeTile: {fileID: 8856224660358605162, guid: f5584a4e786aec2429dd274b12d1ef13, type: 3}
   _tileLimit: 3
   _destroyTransformX: -100

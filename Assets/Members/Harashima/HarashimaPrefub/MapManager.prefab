@@ -56,7 +56,7 @@ MonoBehaviour:
   _decreaseSpeed: 30
   _increaseSpeed: 30
   _additionSpeed: 50
-  _createMapX: 200
+  _createMapX: 100
   _backParticle1: {fileID: 0}
   _backParticle2: {fileID: 0}
   _backParticle3: {fileID: 0}
