@@ -43,10 +43,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce3301f1dac74549b6fca935ce41fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _easyMapPrefubs: {fileID: 242659923140047455, guid: 2c954b2a34464124db4149dee53d3d01, type: 3}
-  _normalMapPrefubs: {fileID: 8307217825612657544, guid: f892c5d4b9648bf4aa9cbc2d918eb287, type: 3}
-  _hardMapPrefubs: {fileID: 0}
+  _firstPrefub: {fileID: 242659923140047455, guid: 2c954b2a34464124db4149dee53d3d01, type: 3}
+  _secondPrefub: {fileID: 8307217825612657544, guid: f892c5d4b9648bf4aa9cbc2d918eb287, type: 3}
+  _thirdPrefub: {fileID: 0}
+  _fourthPrefub: {fileID: 0}
+  _fifthPrefub: {fileID: 0}
   _changeTimes: 3
-  _interval: 3
-  _initialTransform: {fileID: 0}
   _canvas: {fileID: 0}
+  _speed: 100
+  _speedDownLimit: 0
+  _speedUpLimit: 0
+  _decreaseSpeed: 100
+  _additionSpeed: 50
+  _createMapX: 200
+  _backParticle1: {fileID: 0}
+  _backParticle2: {fileID: 0}
+  _backParticle3: {fileID: 0}
