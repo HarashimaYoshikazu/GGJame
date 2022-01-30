@@ -11,6 +11,7 @@ public abstract class TileControllerBase : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Image _CoveredImage;
 
     [SerializeField] private Animator _Animator;
+    [SerializeField] private bool _CanPlaySE = true;
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -23,6 +24,11 @@ public abstract class TileControllerBase : MonoBehaviour, IPointerDownHandler
         var diff = transform.position.x - player.transform.position.x;
         if (diff > 0 && diff < PlayerDistance)
         {
+            if (_CanPlaySE)
+            {
+                Sounds.SoundManager.Request(0, Sounds.SoundGroupID.SE);
+            }
+
             player.Move(transform, OnBeginTileEffect);
         }
     }
