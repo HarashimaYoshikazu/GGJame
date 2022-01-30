@@ -22,11 +22,11 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Transform m_MoveTarget;
 
-    private bool _died = false;
+    private bool _isDied = false;
 
     private void Start()
     {
-        _died = false;
+        _isDied = false;
         //回転を無限ループさせる
         _PlayerInCircle.transform.DOLocalRotate(new Vector3(0, 0, 360f), 5f, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
         _PlayerOutCircle.transform.DOLocalRotate(new Vector3(0, 0, -360f), 5f, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
@@ -89,9 +89,10 @@ public class Player : MonoBehaviour
     /// </summary>
     public void PlayerDiedAnime(System.Action compriteCallback)
     {
-        if (_died)
+        if (_isDied)
             return;
-        _died = true;
+
+        _isDied = true;
         MainManager.I.MapManager.ChangeVisibleAllTiles(false);
         SoundManager.Request(1, SoundGroupID.SE);
         _PlayerInCircle.DOPause();

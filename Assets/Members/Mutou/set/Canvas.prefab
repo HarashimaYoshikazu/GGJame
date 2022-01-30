@@ -1047,6 +1047,7 @@ MonoBehaviour:
   - {fileID: 651404951361231603}
   _ranking: {fileID: 6165035038788093465}
   _animCanvas: {fileID: 651404951565902540}
+  _restartButton: {fileID: 651404951323628695}
 --- !u!320 &651404951565902546
 PlayableDirector:
   m_ObjectHideFlags: 0
