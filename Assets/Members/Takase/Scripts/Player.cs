@@ -16,6 +16,11 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform _PlayerOutCircle;
     [SerializeField] private CanvasGroup _PlayerCanvasGroup;
 
+
+    [SerializeField] private Vector2 _deadAnimX;
+    [SerializeField] private Vector2 _deadAnimY;
+    [SerializeField] private float _deadGravityScale;
+
     private Tween _tweener;
 
     private float _Timer = 1.0f;
@@ -40,6 +45,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (_isDied)
+            return;
+
         if (_tweener == null && m_MoveTarget)
         {
             transform.position = m_MoveTarget.position;
@@ -47,7 +55,7 @@ public class Player : MonoBehaviour
 
         if (transform.position.x < 50f)
         {
-            PlayerDiedAnime(() => GameManager.Instance.ChangeState(GameState.Result));
+            PlayerDiedAnime(() => GameManager.Instance.ChangeState(GameState.Result), false);
         }
 
         if (_tweener != null)
@@ -87,7 +95,7 @@ public class Player : MonoBehaviour
     /// <summary>
     /// 死亡時演出処理
     /// </summary>
-    public void PlayerDiedAnime(System.Action compriteCallback)
+    public void PlayerDiedAnime(System.Action compriteCallback, bool isTile)
     {
         if (_isDied)
             return;
@@ -97,11 +105,33 @@ public class Player : MonoBehaviour
         SoundManager.Request(1, SoundGroupID.SE);
         _PlayerInCircle.DOPause();
         _PlayerOutCircle.DOPause();
-        _PlayerCanvasGroup.DOFade(0f, 1.0f).SetEase(Ease.OutSine);
-        transform.DOScale(20.0f, 1.0f).SetEase(Ease.OutSine)
-            .OnComplete(() =>
-            {
-                compriteCallback();
-            });
+        Debug.LogError($"isTile:{isTile}");
+        if (isTile)
+        {
+            var rigid1 = _PlayerInCircle.GetComponent<Rigidbody2D>();
+            var rigid2 = _PlayerOutCircle.GetComponent<Rigidbody2D>();
+            rigid1.gravityScale = _deadGravityScale;
+            rigid2.gravityScale = _deadGravityScale;
+            var power1 = UnityEngine.Random.Range(_deadAnimX.x, _deadAnimX.y);
+            var power2 = UnityEngine.Random.Range(_deadAnimX.x, _deadAnimX.y);
+            var addForce1 = new Vector2(power1, UnityEngine.Random.Range(_deadAnimY.x, _deadAnimY.y));
+            var addForce2 = new Vector2(-power2, UnityEngine.Random.Range(_deadAnimY.x, _deadAnimY.y));
+            rigid1.AddForce(addForce1);
+            rigid2.AddForce(addForce2);
+            _PlayerCanvasGroup.DOFade(0f, 2.0f).SetEase(Ease.OutSine)
+                .OnComplete(() =>
+                {
+                    compriteCallback();
+                });
+        }
+        else
+        {
+            _PlayerCanvasGroup.DOFade(0f, 1.0f).SetEase(Ease.OutSine);
+            transform.DOScale(20.0f, 1.0f).SetEase(Ease.OutSine)
+                .OnComplete(() =>
+                {
+                    compriteCallback();
+                });
+        }
     }
 }
