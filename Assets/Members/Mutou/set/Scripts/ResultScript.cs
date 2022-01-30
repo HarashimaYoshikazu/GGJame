@@ -45,17 +45,16 @@ public class ResultScript : MonoBehaviour
     }
     public void GetRankingData()
     {
-        _animCanvas.SetBool("ranking", _ranking.IsRankIn());
-        Debug.Log(_animCanvas.GetBool("ranking"));
+        _animCanvas.SetBool("Ranking", _ranking.IsRankIn());
+        Debug.Log(_animCanvas.GetBool("Ranking"));
     }
     public void BackToResult()
     {
-        _animCanvas.SetBool("ranking", false);
+        _animCanvas.SetBool("Ranking", false);
     }
 
     private void ChangeTitle()
     {
-        Debug.LogError($"ChangeTitle");
         GameManager.Instance.ChangeState(GameState.Title);
     }
 }
