@@ -166,4 +166,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CoveredImage: {fileID: 8162733189124350568}
   _Animator: {fileID: 0}
-  _decreaseSpeed: 100
+  _decreaseSpeed: 50
