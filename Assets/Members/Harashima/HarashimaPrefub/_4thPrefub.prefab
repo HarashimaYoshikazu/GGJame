@@ -92,7 +92,9 @@ MonoBehaviour:
   _tilePrefub:
   - {fileID: 6457739871117194258, guid: 9a3fb787d33479f4cace42552f508325, type: 3}
   - {fileID: 8856224660358605162, guid: f5584a4e786aec2429dd274b12d1ef13, type: 3}
-  - {fileID: 8856224660358605162, guid: f5584a4e786aec2429dd274b12d1ef13, type: 3}
+  - {fileID: 6157428569462918046, guid: 6dd7c8b39d61d9f418bccaa52e1389d4, type: 3}
+  - {fileID: 6157428569462918046, guid: 7c739e669d1b8994598300df339fcad9, type: 3}
+  - {fileID: 6157428569462918046, guid: 95eede2e0cf316942b5dfe5ff637f662, type: 3}
   - {fileID: 8856224660358605162, guid: f5584a4e786aec2429dd274b12d1ef13, type: 3}
   - {fileID: 8856224660358605162, guid: f5584a4e786aec2429dd274b12d1ef13, type: 3}
   _safeTile: {fileID: 8856224660358605162, guid: f5584a4e786aec2429dd274b12d1ef13, type: 3}
