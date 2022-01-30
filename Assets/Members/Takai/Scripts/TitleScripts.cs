@@ -37,15 +37,13 @@ public class TitleScripts : MonoBehaviour
     [SerializeField] GameObject _backLight4;
 
     [Header("フェードイメージ")]
-    [SerializeField] Image _fadeImageWhite;
-    [SerializeField] Image _fadeImageBlack;
+    [SerializeField] private Transform _fadeTransform;
 
     int _selectButton = -1;
 
     void Start()
     {
-        _fadeImageWhite.gameObject.SetActive(false);
-        _fadeImageBlack.gameObject.SetActive(false);
+        _fadeTransform.localScale = new Vector3(3f,3f,3f);
     }
     public void OnClickStart()
     {
@@ -205,27 +203,13 @@ public class TitleScripts : MonoBehaviour
         }
     }
 
-    public void OnClickQuit()
-    {
-        DoFadeImageOut(1f);
-    }
-
-    public void DoFadeImageOut(float color)
-    {
-        _fadeImageBlack.gameObject.SetActive(true);
-        _fadeImageBlack.DOFade(color, 3f).OnComplete(() =>
-        {
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#elif UNITY_STANDALONE
-      UnityEngine.Application.Quit();
-#endif
-        });
-    }
-
     public void DOFadeLoadScene(float color)
     {
-        _fadeImageWhite.gameObject.SetActive(true);
-        _fadeImageWhite.DOFillAmount(color, _fadeTime).SetEase(Ease.OutQuint).OnComplete(() => SceneManager.LoadScene(_inGameName));
+        //_fadeImageWhite.DOFillAmount(color, _fadeTime).SetEase(Ease.OutQuint).OnComplete(() => SceneManager.LoadScene(_inGameName));
+        DOTween.Sequence()
+            .Append(_fadeTransform.DOScale(new Vector3(1f, 1f, 1f), 0.5f).SetEase(Ease.Linear))
+            .AppendInterval(0.5f)
+            .Append(_fadeTransform.DOScale(Vector3.zero, 1f).SetEase(Ease.Linear)
+            .OnComplete(() => SceneManager.LoadScene(_inGameName)));
     }
 }
