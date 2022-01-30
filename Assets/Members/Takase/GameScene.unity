@@ -394,10 +394,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 637117014}
     m_Modifications:
-    - target: {fileID: 7489424233297069340, guid: e4df42ff6f6fd49efb02735f14018662, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7909481667959892992, guid: e4df42ff6f6fd49efb02735f14018662, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -446,20 +442,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackGround
       objectReference: {fileID: 0}
-    - target: {fileID: 7950273858120768170, guid: e4df42ff6f6fd49efb02735f14018662, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7950273858120768170, guid: e4df42ff6f6fd49efb02735f14018662, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7950273858120768170, guid: e4df42ff6f6fd49efb02735f14018662, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4df42ff6f6fd49efb02735f14018662, type: 3}
+--- !u!1 &284333808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 133935349720902770, guid: e4df42ff6f6fd49efb02735f14018662, type: 3}
+  m_PrefabInstance: {fileID: 284333807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &284333809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1889769385063226192, guid: e4df42ff6f6fd49efb02735f14018662, type: 3}
+  m_PrefabInstance: {fileID: 284333807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &284333810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8646296201514676508, guid: e4df42ff6f6fd49efb02735f14018662, type: 3}
+  m_PrefabInstance: {fileID: 284333807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &364320381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2447,6 +2446,18 @@ PrefabInstance:
       propertyPath: _canvas
       value: 
       objectReference: {fileID: 637117013}
+    - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
+      propertyPath: _backParticle1
+      value: 
+      objectReference: {fileID: 284333810}
+    - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
+      propertyPath: _backParticle2
+      value: 
+      objectReference: {fileID: 284333809}
+    - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
+      propertyPath: _backParticle3
+      value: 
+      objectReference: {fileID: 284333808}
     - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
       propertyPath: _initialTransform
       value: 
