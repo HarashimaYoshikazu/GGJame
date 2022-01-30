@@ -1491,7 +1491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resultText: {fileID: 651404952053096773}
-  _judgeNumber: {x: 50, y: 100}
+  _judgeNumber: {x: 100, y: 1000}
   _popUpImage:
   - {fileID: 651404952355240616}
   - {fileID: 651404953035318555}
