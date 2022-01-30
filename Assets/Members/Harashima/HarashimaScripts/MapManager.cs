@@ -26,7 +26,7 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
 
     [Header("生成情報")]
     [SerializeField, Tooltip("何回生成したら難易度を変更するか")]
-    int _changeTimes = 3;
+    int _changeTimes = 20;
     /// <summary>生成のカウント</summary>
     int _instansCount;
 
@@ -88,7 +88,6 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
         {
             InstansMap(_currentDifficulty);
         }
-        Debug.Log(_currentDifficulty);
     }
 
     /// <summary>
