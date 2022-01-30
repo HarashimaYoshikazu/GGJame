@@ -8,7 +8,7 @@ public class MapController : MonoBehaviour
     [SerializeField, Tooltip("マップの子オブジェクトとして生成されるタイル")]
     GameObject[] _tilePrefub;
     [SerializeField, Tooltip("安全地帯のタイル")]
-    GameObject _whiteTile;
+    GameObject _safeTile;
     [SerializeField, Tooltip("タイルの生成上限")]
     int _tileLimit;
 
@@ -61,7 +61,7 @@ public class MapController : MonoBehaviour
             else
             {
                 //安全地帯を絶対に生成する
-                var go = Instantiate(_whiteTile, this.transform);
+                var go = Instantiate(_safeTile, this.transform);
                 MapManager.I.TileControll(go, true);
                 _currentMapTile.Add(go);
             }
