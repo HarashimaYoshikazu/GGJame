@@ -244,10 +244,5 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
         _LastMapObj = Instantiate(obj, _canvas.transform);
         _LastMapObjPosX = _LastMapObj.transform.position.x;
     }
-
-    private void StopInstans()
-    {
-          
-    }
 }
 
