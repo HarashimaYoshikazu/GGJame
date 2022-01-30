@@ -364,7 +364,9 @@ MonoBehaviour:
   - {fileID: 1142265715}
   _ranking: {fileID: 1910962820}
   _animCanvas: {fileID: 2042670924}
+  _backButton: {fileID: 0}
   _restartButton: {fileID: 0}
+  _restartFadeTransform: {fileID: 0}
 --- !u!4 &2023968976
 Transform:
   m_ObjectHideFlags: 0
@@ -483,21 +485,5 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2023968975}
-    - target: {fileID: 1345097100706077058, guid: c5ad7f5265112644eb32846910ec9c2a, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1345097100706077058, guid: c5ad7f5265112644eb32846910ec9c2a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1345097100706077058, guid: c5ad7f5265112644eb32846910ec9c2a, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983776016577768778, guid: c5ad7f5265112644eb32846910ec9c2a, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5ad7f5265112644eb32846910ec9c2a, type: 3}
