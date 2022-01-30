@@ -52,6 +52,8 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
     public float _speed = 100f;
     [SerializeField, Tooltip("難易度が上がった時に上がるスピード")]
     public float _additionSpeed = 50f;
+    [SerializeField, Tooltip("次タイルを表示するしきい値")]
+    private float _createMapX = 200f;
 
     public bool CanStageMove { get; set; } = false;
 
@@ -96,7 +98,7 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
     void InstansMap(Difficulty difficulty)
     {
         var diff = _LastMapObj.transform.position.x - _LastMapObjPosX;
-        if (Mathf.Abs(diff) > 274)
+        if (Mathf.Abs(diff) > _createMapX)
         {
             switch (difficulty)
             {

@@ -42,7 +42,15 @@ public class GameManager
             case GameState.Result:
                 // 本当はすぐにタイトルにはいきません
                 // TODO: 誰かお願いします
+                //SceneManager.LoadScene("TitleScene");
+                break;
+
+            case GameState.Title:
                 SceneManager.LoadScene("TitleScene");
+                break;
+
+            case GameState.InGame:
+                SceneManager.LoadScene("GameScene");
                 break;
         }
     }

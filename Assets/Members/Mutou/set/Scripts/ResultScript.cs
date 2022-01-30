@@ -12,6 +12,13 @@ public class ResultScript : MonoBehaviour
     [SerializeField] RankingManage _ranking = default;
     [SerializeField] Animator _animCanvas = default;
 
+    [SerializeField] Button _restartButton = default;
+
+    private void Start()
+    {
+        _restartButton.onClick.AddListener(ChangeTitle);
+    }
+
     /// <summary>
     /// リザルトのパネルを表示させる関数
     /// </summary>
@@ -38,10 +45,16 @@ public class ResultScript : MonoBehaviour
     }
     public void GetRankingData()
     {
-        _animCanvas.SetBool("ranking",_ranking.IsRankIn());
+        _animCanvas.SetBool("ranking", _ranking.IsRankIn());
     }
     public void BackToResult()
     {
         _animCanvas.SetBool("ranking", false);
+    }
+
+    private void ChangeTitle()
+    {
+        Debug.LogError($"ChangeTitle");
+        GameManager.Instance.ChangeState(GameState.Title);
     }
 }
