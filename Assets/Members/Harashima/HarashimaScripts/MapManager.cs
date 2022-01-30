@@ -59,6 +59,14 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
     [SerializeField, Tooltip("次タイルを表示するしきい値")]
     private float _createMapX = 200f;
 
+
+    [SerializeField, Tooltip("背景パーティクル1")]
+    private GameObject _backParticle1;
+    [SerializeField, Tooltip("背景パーティクル2")]
+    private GameObject _backParticle2;
+    [SerializeField, Tooltip("背景パーティクル3")]
+    private GameObject _backParticle3;
+
     public bool CanStageMove { get; set; } = false;
 
     void Start()
@@ -108,14 +116,26 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
                 //ランダムなマッププレハブを生成,Listに格納
                 case Difficulty.Easy:
                     CreateMapPrefab(_easyMapPrefubs);
+                    if (!_backParticle1.activeSelf)
+                    {
+                        _backParticle1.SetActive(true);
+                    }
                     break;
 
                 case Difficulty.Normal:
                     CreateMapPrefab(_normalMapPrefubs);
+                    if (!_backParticle2.activeSelf)
+                    {
+                        _backParticle2.SetActive(true);
+                    }
                     break;
 
                 case Difficulty.Hard:
                     CreateMapPrefab(_hardMapPrefubs);
+                    if (!_backParticle3.activeSelf)
+                    {
+                        _backParticle3.SetActive(true);
+                    }
                     break;
             }
 
