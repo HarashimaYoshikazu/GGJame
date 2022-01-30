@@ -9,6 +9,7 @@ public class MainManager : SingletonMonoBehaviour<MainManager>
     [SerializeField] private MapManager _MapManager;
     [SerializeField] private Canvas _StageCanvas;
     [SerializeField] private UIGame _UIGame;
+    [SerializeField] private Animator _DeadZoneAnim;
 
     [SerializeField] private ResultScript resultScript;
 
@@ -33,5 +34,7 @@ public class MainManager : SingletonMonoBehaviour<MainManager>
             resultScript.gameObject.SetActive(true);
             resultScript.ViewResult();
         }
+
+        _DeadZoneAnim.SetFloat("Speed", MapManager.I._speed / 100);
     }
 }
