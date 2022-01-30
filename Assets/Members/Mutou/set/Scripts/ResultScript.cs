@@ -46,6 +46,7 @@ public class ResultScript : MonoBehaviour
     public void GetRankingData()
     {
         _animCanvas.SetBool("ranking", _ranking.IsRankIn());
+        Debug.Log(_animCanvas.GetBool("ranking"));
     }
     public void BackToResult()
     {

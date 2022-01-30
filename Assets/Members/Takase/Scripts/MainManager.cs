@@ -12,6 +12,7 @@ public class MainManager : SingletonMonoBehaviour<MainManager>
     [SerializeField] private Animator _DeadZoneAnim;
 
     [SerializeField] private ResultScript resultScript;
+    [SerializeField] RankingManage _rankingManager = default;
 
     public Player Player => _Player;
 
@@ -33,6 +34,7 @@ public class MainManager : SingletonMonoBehaviour<MainManager>
         {
             resultScript.gameObject.SetActive(true);
             resultScript.ViewResult();
+            _rankingManager.GetScore(GameManager.Instance.Score);
         }
 
         _DeadZoneAnim.SetFloat("Speed", MapManager.I._speed / 100);
