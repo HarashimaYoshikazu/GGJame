@@ -38,7 +38,12 @@ public class Player : MonoBehaviour
         //回転を無限ループさせる
         _PlayerInCircle.transform.DOLocalRotate(new Vector3(0, 0, 360f), 5f, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
         _PlayerOutCircle.transform.DOLocalRotate(new Vector3(0, 0, -360f), 5f, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
-        _PlayerOutCircle.transform.DOScale(new Vector3(1.5f, 1.5f, 1f), 0.2f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.Linear);
+        DOTween.Sequence()
+            .Append(_PlayerOutCircle.transform.DOScale(new Vector3(1.5f, 1.5f, 1f), 0.2f).SetEase(Ease.Linear))
+            .Append(_PlayerOutCircle.transform.DOScale(new Vector3(1.0f, 1.0f, 1f), 0.2f).SetEase(Ease.Linear))
+            .AppendInterval(0.25f)
+            .SetLoops(-1, LoopType.Yoyo);
+
     }
 
     private void Reset()
