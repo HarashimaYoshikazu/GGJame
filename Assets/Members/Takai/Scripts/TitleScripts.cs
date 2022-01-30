@@ -14,6 +14,8 @@ public class TitleScripts : MonoBehaviour
     [SerializeField] GameObject _startButton;
     [SerializeField] string _inGameName = ""; //スタートした後に飛ぶシーン名を入れる
     [SerializeField] float _fadeTime;
+    [SerializeField] GameObject _titleBackImage;
+    [SerializeField] Image _titleImage;
 
     [Header("Audioボタン")]
     [SerializeField] Button _audioButton;
@@ -54,6 +56,9 @@ public class TitleScripts : MonoBehaviour
     {
         if (_selectButton != num)
         {
+            _titleBackImage.SetActive(false);
+            _titleImage.color = new Color32(135, 135, 145, 70);
+
             _backLight1.SetActive(true);
             _backLight2.SetActive(true);
             _backLight3.SetActive(true);
@@ -77,6 +82,9 @@ public class TitleScripts : MonoBehaviour
         }
         else
         {
+            _titleBackImage.SetActive(true);
+            _titleImage.color = new Color32(255, 255, 255, 255);
+
             _audioCanvas.SetActive(false);
             _rankCanvas.SetActive(false);
             _ruleCanvas.SetActive(false);
@@ -99,6 +107,9 @@ public class TitleScripts : MonoBehaviour
     {
         if (_selectButton != num)
         {
+            _titleBackImage.SetActive(false);
+            _titleImage.color = new Color32(135, 135, 145, 70);
+
             _backLight1.SetActive(true);
             _backLight2.SetActive(true);
             _backLight3.SetActive(true);
@@ -122,6 +133,9 @@ public class TitleScripts : MonoBehaviour
         }
         else
         {
+            _titleBackImage.SetActive(true);
+            _titleImage.color = new Color32(255, 255, 255, 255);
+
             _audioCanvas.SetActive(false);
             _rankCanvas.SetActive(false);
             _ruleCanvas.SetActive(false);
@@ -144,6 +158,9 @@ public class TitleScripts : MonoBehaviour
     {
         if (_selectButton != num)
         {
+            _titleBackImage.SetActive(false);
+            _titleImage.color = new Color32(135, 135, 145, 70);
+
             _backLight1.SetActive(true);
             _backLight2.SetActive(true);
             _backLight3.SetActive(true);
@@ -167,6 +184,9 @@ public class TitleScripts : MonoBehaviour
         }
         else
         {
+            _titleBackImage.SetActive(true);
+            _titleImage.color = new Color32(255, 255, 255, 255);
+
             _audioCanvas.SetActive(false);
             _rankCanvas.SetActive(false);
             _ruleCanvas.SetActive(false);
@@ -185,7 +205,7 @@ public class TitleScripts : MonoBehaviour
         }
     }
 
-    public void OnClickQuit(int num)
+    public void OnClickQuit()
     {
         DoFadeImageOut(1f);
     }
