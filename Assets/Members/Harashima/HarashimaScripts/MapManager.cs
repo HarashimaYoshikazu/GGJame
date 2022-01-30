@@ -6,9 +6,11 @@ using UnityEngine;
 /// </summary>
 public enum Difficulty
 {
-    Easy,
-    Normal,
-    Hard
+    First,
+    Second,
+    Third,
+    Fourth,
+    Fifth
 }
 
 /// <summary>
@@ -17,12 +19,16 @@ public enum Difficulty
 public class MapManager : SingletonMonoBehaviour<MapManager>
 {
     [Header("生成するマップのプレハブ")]
-    [SerializeField, Tooltip("イージー")]
-    GameObject _easyMapPrefubs;
-    [SerializeField, Tooltip("ノーマル")]
-    GameObject _normalMapPrefubs;
-    [SerializeField, Tooltip("ハード")]
-    GameObject _hardMapPrefubs;
+    [SerializeField, Tooltip("1st")]
+    GameObject _firstPrefub;
+    [SerializeField,Tooltip("2nd")]
+    GameObject _secondPrefub;
+    [SerializeField, Tooltip("3rd")]
+    GameObject _thirdPrefub;
+    [SerializeField, Tooltip("4th")]
+    GameObject _fourthPrefub;
+    [SerializeField, Tooltip("5th")]
+    GameObject _fifthPrefub;
 
     [Header("生成情報")]
     [SerializeField, Tooltip("何回生成したら難易度を変更するか")]
@@ -84,9 +90,9 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
     public void Init()
     {
         //最初の難易度はEasyで初期化
-        _currentDifficulty = Difficulty.Easy;
+        _currentDifficulty = Difficulty.First;
         //最初のみ初期位置に生成
-        CreateMapPrefab(_easyMapPrefubs);
+        CreateMapPrefab(_firstPrefub);
 
         _IsInit = true;
     }
@@ -98,7 +104,7 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
             return;
         }
 
-        if (_normalMapPrefubs != null)
+        if (_secondPrefub != null)
         {
             InstansMap(_currentDifficulty);
         }
@@ -121,29 +127,44 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
             switch (difficulty)
             {
                 //ランダムなマッププレハブを生成,Listに格納
-                case Difficulty.Easy:
-                    CreateMapPrefab(_easyMapPrefubs);
+                case Difficulty.First:
+                    CreateMapPrefab(_firstPrefub);
                     if (!_backParticle1.activeSelf)
                     {
                         _backParticle1.SetActive(true);
                     }
                     break;
 
-                case Difficulty.Normal:
-                    CreateMapPrefab(_normalMapPrefubs);
+                case Difficulty.Second:
+                    CreateMapPrefab(_secondPrefub);
                     if (!_backParticle2.activeSelf)
                     {
                         _backParticle2.SetActive(true);
                     }
                     break;
 
-                case Difficulty.Hard:
-                    CreateMapPrefab(_hardMapPrefubs);
+                case Difficulty.Third:
+                    CreateMapPrefab(_thirdPrefub);
                     if (!_backParticle3.activeSelf)
                     {
                         _backParticle3.SetActive(true);
                     }
                     break;
+                case Difficulty.Fourth:
+                    CreateMapPrefab(_fourthPrefub);
+                    if (!_backParticle3.activeSelf)
+                    {
+                        _backParticle3.SetActive(true);
+                    }
+                    break;
+                case Difficulty.Fifth:
+                    CreateMapPrefab(_fifthPrefub);
+                    if (!_backParticle3.activeSelf)
+                    {
+                        _backParticle3.SetActive(true);
+                    }
+                    break;
+
             }
 
             //生成したらカウントを増やす
@@ -160,16 +181,27 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
     {
         //生成回数が規定回数を超えたら難易度を上げる
 
-        if (_changeTimes * 2 <= _instansCount && _hardMapPrefubs != null)
+        if (_changeTimes * 4 <= _instansCount && _fifthPrefub != null && _currentDifficulty != Difficulty.Fifth)
         {
-            _currentDifficulty = Difficulty.Hard;
+            _currentDifficulty = Difficulty.Fifth;
             //スクロールスピードを上げる
             _speed += _additionSpeed;
-
         }
-        else if (_normalMapPrefubs != null && _changeTimes <= _instansCount)
+        else if (_changeTimes * 3 <= _instansCount && _fourthPrefub != null && _currentDifficulty != Difficulty.Fourth)
         {
-            _currentDifficulty = Difficulty.Normal;
+            _currentDifficulty = Difficulty.Fourth;
+            //スクロールスピードを上げる
+            _speed += _additionSpeed;
+        }
+        else if (_changeTimes * 2 <= _instansCount && _thirdPrefub != null && _currentDifficulty != Difficulty.Third)
+        {
+            _currentDifficulty = Difficulty.Third;
+            //スクロールスピードを上げる
+            _speed += _additionSpeed;
+        }
+        else if (_secondPrefub != null && _changeTimes <= _instansCount && _currentDifficulty != Difficulty.Second)
+        {
+            _currentDifficulty = Difficulty.Second;
             _speed += _additionSpeed;
         }
     }
