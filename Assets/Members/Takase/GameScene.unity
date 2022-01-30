@@ -1424,6 +1424,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 651404951565902542, guid: c5ad7f5265112644eb32846910ec9c2a, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 651404951565902542, guid: c5ad7f5265112644eb32846910ec9c2a, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 651404951565902542, guid: c5ad7f5265112644eb32846910ec9c2a, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 651404951565902543, guid: c5ad7f5265112644eb32846910ec9c2a, type: 3}
       propertyPath: m_SortingOrder
       value: 100
@@ -1540,8 +1552,23 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: -17
       objectReference: {fileID: 0}
+    - target: {fileID: 9213994121247275279, guid: c5ad7f5265112644eb32846910ec9c2a, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 754974720
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5ad7f5265112644eb32846910ec9c2a, type: 3}
+--- !u!114 &1428743998 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6165035038788093465, guid: c5ad7f5265112644eb32846910ec9c2a, type: 3}
+  m_PrefabInstance: {fileID: 1428743997}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e6dfd33fea6e6448142ae24e05d4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1493807604 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 651404951565902539, guid: c5ad7f5265112644eb32846910ec9c2a, type: 3}
@@ -2186,6 +2213,10 @@ PrefabInstance:
       propertyPath: _DeadZoneAnim
       value: 
       objectReference: {fileID: 1909576728}
+    - target: {fileID: 261750816425011852, guid: fde4640c22ff36f4cb6e41d39106c34a, type: 3}
+      propertyPath: _rankingManager
+      value: 
+      objectReference: {fileID: 1428743998}
     - target: {fileID: 261750816425011852, guid: fde4640c22ff36f4cb6e41d39106c34a, type: 3}
       propertyPath: _resultGameObject
       value: 
