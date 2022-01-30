@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 6506148319440067072}
   - component: {fileID: -3778475746988775819}
   m_Layer: 5
-  m_Name: _speedDowanTile
+  m_Name: _speedDownTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,3 +166,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CoveredImage: {fileID: 8162733189124350568}
   _Animator: {fileID: 0}
+  _CanPlaySE: 1

@@ -52,8 +52,9 @@ MonoBehaviour:
   _canvas: {fileID: 0}
   _speed: 100
   _speedDownLimit: 70
-  _speedUpLimit: 300
+  _speedUpLimit: 250
   _decreaseSpeed: 30
+  _increaseSpeed: 30
   _additionSpeed: 50
   _createMapX: 200
   _backParticle1: {fileID: 0}

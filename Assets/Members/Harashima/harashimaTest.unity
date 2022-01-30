@@ -2473,7 +2473,7 @@ PrefabInstance:
     - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
       propertyPath: _firstPrefub
       value: 
-      objectReference: {fileID: 242659923140047455, guid: 2c954b2a34464124db4149dee53d3d01, type: 3}
+      objectReference: {fileID: 242659923140047455, guid: 190de0d3972722649b2d831e163c6987, type: 3}
     - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
       propertyPath: _thirdPrefub
       value: 
@@ -2485,7 +2485,7 @@ PrefabInstance:
     - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
       propertyPath: _secondPrefub
       value: 
-      objectReference: {fileID: 8307217825612657544, guid: f892c5d4b9648bf4aa9cbc2d918eb287, type: 3}
+      objectReference: {fileID: 242659923140047455, guid: 190de0d3972722649b2d831e163c6987, type: 3}
     - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
       propertyPath: _speedUpLimit
       value: 800
