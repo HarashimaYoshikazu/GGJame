@@ -50,7 +50,7 @@ MonoBehaviour:
   _fifthPrefub: {fileID: 8307217825612657544, guid: d368ae312523fc840bdbb5091c91768b, type: 3}
   _changeTimes: 10
   _canvas: {fileID: 0}
-  _speed: 100
+  _speed: 80
   _speedDownLimit: 70
   _speedUpLimit: 200
   _decreaseSpeed: 30
