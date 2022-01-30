@@ -48,7 +48,8 @@ namespace Sounds
             }
             else
             {
-                DontDestroyOnLoad(gameObject);
+                Destroy(gameObject);
+                return;
             }
             _soundPool = new ObjectPool<SoundEffect>(_soundEffect, _poolCount, transform);
         }
