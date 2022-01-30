@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
             transform.position = m_MoveTarget.position;
         }
 
-        if (transform.position.x < 50f)
+        if (transform.position.x < 150f)
         {
             PlayerDiedAnime(() => GameManager.Instance.ChangeState(GameState.Result), false);
         }

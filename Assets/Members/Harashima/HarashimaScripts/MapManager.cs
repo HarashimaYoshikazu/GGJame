@@ -108,6 +108,11 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
     /// <param name="difficulty">現在の難易度</param>
     void InstansMap(Difficulty difficulty)
     {
+        if (!_LastMapObj)
+        {
+            return;
+        }
+
         var diff = _LastMapObj.transform.position.x - _LastMapObjPosX;
         if (Mathf.Abs(diff) > _createMapX)
         {
