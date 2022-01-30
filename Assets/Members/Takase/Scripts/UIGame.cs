@@ -13,6 +13,11 @@ public class UIGame : MonoBehaviour
     private Tween _ScoreTween = null;
     private int _currentDispScore = 0;
 
+    private void Awake()
+    {
+        _fadeImage.enabled = true;
+    }
+
     public void Setup()
     {
         GameManager.Instance.OnAddScore += UpdateScore;

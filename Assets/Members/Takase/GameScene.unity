@@ -2089,7 +2089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tilePrefub: []
-  _whiteTile: {fileID: 0}
+  _safeTile: {fileID: 0}
   _tileLimit: 0
   _destroyTransformX: -100
 --- !u!114 &242659924423571320
@@ -2476,6 +2476,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 442584965}
     m_Modifications:
+    - target: {fileID: 6494690589828198639, guid: 9903440f7046daf499aa40ed727a2edb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6494690589828198639, guid: 9903440f7046daf499aa40ed727a2edb, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7549703119273076316, guid: 9903440f7046daf499aa40ed727a2edb, type: 3}
       propertyPath: m_Name
       value: UIGame

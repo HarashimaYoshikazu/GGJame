@@ -9,6 +9,6 @@ public class OutTileController : TileControllerBase
         MainManager.I.Player.PlayerDiedAnime(() =>
         {
             GameManager.Instance.ChangeState(GameState.Result);
-        });
+        }, true);
     }
 }
