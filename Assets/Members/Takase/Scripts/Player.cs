@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
             transform.position = m_MoveTarget.position;
         }
 
-        if (transform.position.x < -100f)
+        if (transform.position.x < 50f)
         {
             PlayerDiedAnime(() => GameManager.Instance.ChangeState(GameState.Result));
         }
@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
         _PlayerOutCircle.transform.DOScale(new Vector3(2f, 2f, 1f), 0.1f).SetLoops(2, LoopType.Yoyo).SetEase(Ease.Linear);
 
         m_MoveTarget = target;
-        _tweener = transform.DOMove(target.position * 0.95f, 0.2f);
+        _tweener = transform.DOMove(target.position, 0.2f);
         _tweener.onComplete = () =>
         {
             _tweener = null;

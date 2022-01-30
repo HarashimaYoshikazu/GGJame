@@ -92,7 +92,7 @@ MonoBehaviour:
   _tilePrefub:
   - {fileID: 8856224660358605162, guid: f5584a4e786aec2429dd274b12d1ef13, type: 3}
   - {fileID: 6457739871117194258, guid: 9a3fb787d33479f4cace42552f508325, type: 3}
-  _whiteTile: {fileID: 8856224660358605162, guid: f5584a4e786aec2429dd274b12d1ef13, type: 3}
+  _safeTile: {fileID: 8856224660358605162, guid: f5584a4e786aec2429dd274b12d1ef13, type: 3}
   _tileLimit: 3
   _destroyTransformX: -100
 --- !u!114 &242659923140047442

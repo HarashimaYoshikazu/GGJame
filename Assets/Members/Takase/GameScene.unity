@@ -2184,6 +2184,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1493807607}
     - target: {fileID: 261750816425011852, guid: fde4640c22ff36f4cb6e41d39106c34a, type: 3}
+      propertyPath: _DeadZoneAnim
+      value: 
+      objectReference: {fileID: 1909576728}
+    - target: {fileID: 261750816425011852, guid: fde4640c22ff36f4cb6e41d39106c34a, type: 3}
       propertyPath: _resultGameObject
       value: 
       objectReference: {fileID: 1493807604}

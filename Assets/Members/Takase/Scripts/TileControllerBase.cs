@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public abstract class TileControllerBase : MonoBehaviour, IPointerDownHandler
 {
-    private const float PlayerDistance = 274 * 1.8f;
+    private const float PlayerDistance = 200 * 1.5f;
 
     [SerializeField] private Image _CoveredImage;
 
