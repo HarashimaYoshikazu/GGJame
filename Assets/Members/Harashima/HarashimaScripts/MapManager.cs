@@ -101,14 +101,16 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
 
     void Update()
     {
-        Debug.Log(_currentDifficulty);
         if (!_IsInit)
         {
             return;
         }
 
-
-        InstansMap(_currentDifficulty);
+        if (GameManager.Instance.CurrentState != GameState.Result)
+        {
+            InstansMap(_currentDifficulty);
+        }
+        
 
     }
 
@@ -241,6 +243,11 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
     {
         _LastMapObj = Instantiate(obj, _canvas.transform);
         _LastMapObjPosX = _LastMapObj.transform.position.x;
+    }
+
+    private void StopInstans()
+    {
+          
     }
 }
 
