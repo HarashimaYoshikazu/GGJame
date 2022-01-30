@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,11 +13,18 @@ public class ResultScript : MonoBehaviour
     [SerializeField] RankingManage _ranking = default;
     [SerializeField] Animator _animCanvas = default;
 
+    [SerializeField] Button _backButton = default;
     [SerializeField] Button _restartButton = default;
+
+    [SerializeField] Transform _restartFadeTransform = default;
+
+    private bool isBlock = false;
 
     private void Start()
     {
-        _restartButton.onClick.AddListener(ChangeTitle);
+        isBlock = false;
+        _restartButton.onClick.AddListener(ChangeRestart);
+        _backButton.onClick.AddListener(ChangeTitle);
     }
 
     /// <summary>
@@ -55,6 +63,23 @@ public class ResultScript : MonoBehaviour
 
     private void ChangeTitle()
     {
+        Debug.Log("ChangeTitle");
+        if (isBlock)
+            return;
+        isBlock = true;
         GameManager.Instance.ChangeState(GameState.Title);
+    }
+
+    private void ChangeRestart()
+    {
+        Debug.Log("ChangeRestart");
+        if (isBlock)
+            return;
+        isBlock = true;
+        DOTween.Sequence().Append(_restartFadeTransform.DOScale(new Vector3(0f, 0f, 0f), 1).SetEase(Ease.Linear))
+            .OnComplete(() =>
+            {
+                GameManager.Instance.ChangeState(GameState.InGame);
+            });
     }
 }
