@@ -45,15 +45,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _firstPrefub: {fileID: 242659923140047455, guid: 2c954b2a34464124db4149dee53d3d01, type: 3}
   _secondPrefub: {fileID: 8307217825612657544, guid: f892c5d4b9648bf4aa9cbc2d918eb287, type: 3}
-  _thirdPrefub: {fileID: 0}
-  _fourthPrefub: {fileID: 0}
-  _fifthPrefub: {fileID: 0}
-  _changeTimes: 3
+  _thirdPrefub: {fileID: 8307217825612657544, guid: b0d99520a6549714aa36cf790574b938, type: 3}
+  _fourthPrefub: {fileID: 8307217825612657544, guid: 3e1c458ba4b6a854a956f3c39b81b08f, type: 3}
+  _fifthPrefub: {fileID: 8307217825612657544, guid: d368ae312523fc840bdbb5091c91768b, type: 3}
+  _changeTimes: 10
   _canvas: {fileID: 0}
   _speed: 100
-  _speedDownLimit: 0
-  _speedUpLimit: 0
-  _decreaseSpeed: 100
+  _speedDownLimit: 70
+  _speedUpLimit: 300
+  _decreaseSpeed: 30
   _additionSpeed: 50
   _createMapX: 200
   _backParticle1: {fileID: 0}

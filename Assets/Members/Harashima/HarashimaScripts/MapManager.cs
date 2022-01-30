@@ -99,15 +99,15 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
 
     void Update()
     {
+        Debug.Log(_currentDifficulty);
         if (!_IsInit)
         {
             return;
         }
 
-        if (_secondPrefub != null)
-        {
-            InstansMap(_currentDifficulty);
-        }
+
+        InstansMap(_currentDifficulty);
+
     }
 
     /// <summary>
@@ -181,25 +181,25 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
     {
         //生成回数が規定回数を超えたら難易度を上げる
 
-        if (_changeTimes * 4 <= _instansCount && _fifthPrefub != null && _currentDifficulty != Difficulty.Fifth)
+        if (_changeTimes * 4 <= _instansCount && _fifthPrefub != null && _currentDifficulty == Difficulty.Fourth)
         {
             _currentDifficulty = Difficulty.Fifth;
             //スクロールスピードを上げる
             _speed += _additionSpeed;
         }
-        else if (_changeTimes * 3 <= _instansCount && _fourthPrefub != null && _currentDifficulty != Difficulty.Fourth)
+        else if (_changeTimes * 3 <= _instansCount && _fourthPrefub != null && _currentDifficulty == Difficulty.Third)
         {
             _currentDifficulty = Difficulty.Fourth;
             //スクロールスピードを上げる
             _speed += _additionSpeed;
         }
-        else if (_changeTimes * 2 <= _instansCount && _thirdPrefub != null && _currentDifficulty != Difficulty.Third)
+        else if (_changeTimes * 2 <= _instansCount && _thirdPrefub != null && _currentDifficulty == Difficulty.Second)
         {
             _currentDifficulty = Difficulty.Third;
             //スクロールスピードを上げる
             _speed += _additionSpeed;
         }
-        else if (_secondPrefub != null && _changeTimes <= _instansCount && _currentDifficulty != Difficulty.Second)
+        else if (_secondPrefub != null && _changeTimes <= _instansCount+7 && _currentDifficulty == Difficulty.First)
         {
             _currentDifficulty = Difficulty.Second;
             _speed += _additionSpeed;
