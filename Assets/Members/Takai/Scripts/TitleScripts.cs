@@ -32,8 +32,9 @@ public class TitleScripts : MonoBehaviour
     [SerializeField] GameObject _rankCanvas;
     [SerializeField] GameObject _backLight3;
 
-    [Header("もどるボタン")]
-    [SerializeField] Button _quitButton;
+    [Header("クレジット")]
+    [SerializeField] Button _creditButton;
+    [SerializeField] GameObject _creditCanvas;
     [SerializeField] GameObject _backLight4;
 
     [Header("フェードイメージ")]
@@ -65,6 +66,7 @@ public class TitleScripts : MonoBehaviour
             _audioCanvas.SetActive(true);
             _rankCanvas.SetActive(false);
             _ruleCanvas.SetActive(false);
+            _creditCanvas.SetActive(false);
             _startButton.SetActive(false);
 
             _backLight2.SetActive(false);
@@ -74,7 +76,7 @@ public class TitleScripts : MonoBehaviour
             _audioButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
             _runkButton.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
             _ruleButton.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
-            _quitButton.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
+            _creditButton.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
 
             _selectButton = num;
         }
@@ -84,8 +86,6 @@ public class TitleScripts : MonoBehaviour
             _titleImage.color = new Color32(255, 255, 255, 255);
 
             _audioCanvas.SetActive(false);
-            _rankCanvas.SetActive(false);
-            _ruleCanvas.SetActive(false);
             _startButton.SetActive(true);
 
             _backLight2.SetActive(true);
@@ -95,7 +95,7 @@ public class TitleScripts : MonoBehaviour
             _audioButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
             _runkButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
             _ruleButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
-            _quitButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            _creditButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
 
             _selectButton = -1;
         }
@@ -116,6 +116,7 @@ public class TitleScripts : MonoBehaviour
             _audioCanvas.SetActive(false);
             _rankCanvas.SetActive(true);
             _ruleCanvas.SetActive(false);
+            _creditCanvas.SetActive(false);
             _startButton.SetActive(false);
 
             _backLight1.SetActive(false);
@@ -125,7 +126,7 @@ public class TitleScripts : MonoBehaviour
             _audioButton.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
             _runkButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
             _ruleButton.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
-            _quitButton.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
+            _creditButton.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
 
             _selectButton = num;
         }
@@ -134,9 +135,7 @@ public class TitleScripts : MonoBehaviour
             _titleBackImage.SetActive(true);
             _titleImage.color = new Color32(255, 255, 255, 255);
 
-            _audioCanvas.SetActive(false);
             _rankCanvas.SetActive(false);
-            _ruleCanvas.SetActive(false);
             _startButton.SetActive(true);
 
             _backLight1.SetActive(true);
@@ -146,7 +145,7 @@ public class TitleScripts : MonoBehaviour
             _audioButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
             _runkButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
             _ruleButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
-            _quitButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            _creditButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
 
             _selectButton = -1;
         }
@@ -166,6 +165,7 @@ public class TitleScripts : MonoBehaviour
 
             _audioCanvas.SetActive(false);
             _rankCanvas.SetActive(false);
+            _creditCanvas.SetActive(false);
             _ruleCanvas.SetActive(true);
             _startButton.SetActive(false);
 
@@ -176,7 +176,7 @@ public class TitleScripts : MonoBehaviour
             _audioButton.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
             _runkButton.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
             _ruleButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
-            _quitButton.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
+            _creditButton.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
 
             _selectButton = num;
         }
@@ -185,8 +185,6 @@ public class TitleScripts : MonoBehaviour
             _titleBackImage.SetActive(true);
             _titleImage.color = new Color32(255, 255, 255, 255);
 
-            _audioCanvas.SetActive(false);
-            _rankCanvas.SetActive(false);
             _ruleCanvas.SetActive(false);
             _startButton.SetActive(true);
 
@@ -197,7 +195,57 @@ public class TitleScripts : MonoBehaviour
             _audioButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
             _runkButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
             _ruleButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
-            _quitButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            _creditButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+
+            _selectButton = -1;
+        }
+    }
+
+    public void OnClickcCedit(int num)
+    {
+        if (_selectButton != num)
+        {
+            _titleBackImage.SetActive(false);
+            _titleImage.color = new Color32(135, 135, 145, 70);
+
+            _backLight1.SetActive(true);
+            _backLight2.SetActive(true);
+            _backLight3.SetActive(true);
+            _backLight4.SetActive(true);
+
+            _audioCanvas.SetActive(false);
+            _rankCanvas.SetActive(false);
+            _ruleCanvas.SetActive(false);
+            _creditCanvas.SetActive(true);
+            _startButton.SetActive(false);
+
+            _backLight1.SetActive(false);
+            _backLight2.SetActive(false);
+            _backLight3.SetActive(false);
+            
+            _audioButton.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
+            _runkButton.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
+            _ruleButton.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
+            _creditButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+
+            _selectButton = num;
+        }
+        else
+        {
+            _titleBackImage.SetActive(true);
+            _titleImage.color = new Color32(255, 255, 255, 255);
+
+            _creditCanvas.SetActive(false);
+            _startButton.SetActive(true);
+
+            _backLight1.SetActive(true);
+            _backLight2.SetActive(true);
+            _backLight3.SetActive(true);
+
+            _audioButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            _runkButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            _ruleButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            _creditButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
 
             _selectButton = -1;
         }
