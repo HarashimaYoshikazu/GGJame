@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
         }
 
         _Timer -= Time.deltaTime;
-        if (_Timer <= 0 )
+        if (_Timer <= 0)
         {
             MainManager.I.MapManager.ChangeVisibleAllTiles(false);
         }
@@ -75,11 +75,15 @@ public class Player : MonoBehaviour
 
     public void Move(Transform target, Action onComplete)
     {
-        if ( !_isGeteItem)
+        if (_isDied)
+        {
+            return;
+        }
+
+        if (!_isGeteItem)
         {
             MainManager.I.MapManager.ChangeVisibleAllTiles(true);
         }
-        
 
         // 移動中なので、何もさせない
         if (_tweener != null)
@@ -112,7 +116,7 @@ public class Player : MonoBehaviour
         SoundManager.Request(1, SoundGroupID.SE);
         _PlayerInCircle.DOPause();
         _PlayerOutCircle.DOPause();
-        Debug.LogError($"isTile:{isTile}");
+
         if (isTile)
         {
             var rigid1 = _PlayerInCircle.GetComponent<Rigidbody2D>();
