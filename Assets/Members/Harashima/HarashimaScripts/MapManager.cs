@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sounds;
 /// <summary>
 /// 現在の難易度のState
 /// </summary>
@@ -190,6 +191,7 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
             _currentDifficulty = Difficulty.Fifth;
             //スクロールスピードを上げる
             _speed += _additionSpeed;
+            SoundManager.Request(1, SoundGroupID.SE);
         }
         else if (_changeTimes * 3 <= _instansCount && _fourthPrefub != null && _currentDifficulty == Difficulty.Third)
         {
