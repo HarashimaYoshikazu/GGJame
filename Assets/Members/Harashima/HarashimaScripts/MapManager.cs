@@ -101,14 +101,16 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
 
     void Update()
     {
-        Debug.Log(_currentDifficulty);
         if (!_IsInit)
         {
             return;
         }
 
-
-        InstansMap(_currentDifficulty);
+        if (GameManager.Instance.CurrentState != GameState.Result)
+        {
+            InstansMap(_currentDifficulty);
+        }
+        
 
     }
 
