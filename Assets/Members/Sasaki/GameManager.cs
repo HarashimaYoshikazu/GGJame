@@ -40,6 +40,7 @@ public class GameManager
         switch (state)
         {
             case GameState.Result:
+
                 // 本当はすぐにタイトルにはいきません
                 // TODO: 誰かお願いします
                 //SceneManager.LoadScene("TitleScene");
