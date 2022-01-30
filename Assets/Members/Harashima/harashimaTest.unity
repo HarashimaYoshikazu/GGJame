@@ -2089,7 +2089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tilePrefub: []
-  _whiteTile: {fileID: 0}
+  _safeTile: {fileID: 0}
   _tileLimit: 0
   _destroyTransformX: -100
 --- !u!114 &242659924423571320
@@ -2183,6 +2183,10 @@ PrefabInstance:
       propertyPath: resultScript
       value: 
       objectReference: {fileID: 1493807607}
+    - target: {fileID: 261750816425011852, guid: fde4640c22ff36f4cb6e41d39106c34a, type: 3}
+      propertyPath: _DeadZoneAnim
+      value: 
+      objectReference: {fileID: 1909576728}
     - target: {fileID: 261750816425011852, guid: fde4640c22ff36f4cb6e41d39106c34a, type: 3}
       propertyPath: _resultGameObject
       value: 
@@ -2443,6 +2447,18 @@ PrefabInstance:
       propertyPath: _canvas
       value: 
       objectReference: {fileID: 637117013}
+    - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
+      propertyPath: _changeTimes
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
+      propertyPath: _speedUpLimit
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
+      propertyPath: _speedDownLimit
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
       propertyPath: _initialTransform
       value: 
