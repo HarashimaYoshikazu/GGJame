@@ -870,6 +870,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 554036992}
   m_CullTransparentMesh: 1
+--- !u!1 &603210764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8646296201514676508, guid: e4df42ff6f6fd49efb02735f14018662, type: 3}
+  m_PrefabInstance: {fileID: 284333807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &637117010
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,6 +1410,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 242659923140047452, guid: 2c954b2a34464124db4149dee53d3d01, type: 3}
   m_PrefabInstance: {fileID: 1661169796}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1408517214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 133935349720902770, guid: e4df42ff6f6fd49efb02735f14018662, type: 3}
+  m_PrefabInstance: {fileID: 284333807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1412273549 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 242659923140047452, guid: 2c954b2a34464124db4149dee53d3d01, type: 3}
@@ -1939,6 +1949,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &2010413161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1889769385063226192, guid: e4df42ff6f6fd49efb02735f14018662, type: 3}
+  m_PrefabInstance: {fileID: 284333807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &173737531483289574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2441,7 +2456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
       propertyPath: _speed
-      value: 200
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
       propertyPath: _canvas
@@ -2449,15 +2464,31 @@ PrefabInstance:
       objectReference: {fileID: 637117013}
     - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
       propertyPath: _changeTimes
-      value: 500
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
       propertyPath: _speedUpLimit
       value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
+      propertyPath: _additionSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
+      propertyPath: _backParticle1
+      value: 
+      objectReference: {fileID: 603210764}
+    - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
+      propertyPath: _backParticle2
+      value: 
+      objectReference: {fileID: 2010413161}
+    - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
+      propertyPath: _backParticle3
+      value: 
+      objectReference: {fileID: 1408517214}
+    - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
       propertyPath: _speedDownLimit
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7006461959957365487, guid: 04d3b3645e6623046abc0673c9e010e1, type: 3}
       propertyPath: _initialTransform

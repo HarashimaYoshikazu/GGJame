@@ -114,7 +114,7 @@ public class MapManager : SingletonMonoBehaviour<MapManager>
         }
 
         var diff = _LastMapObj.transform.position.x - _LastMapObjPosX;
-        if (Mathf.Abs(diff) > _createMapX)
+        if (_LastMapObj && Mathf.Abs(diff) > _createMapX)
         {
             switch (difficulty)
             {
